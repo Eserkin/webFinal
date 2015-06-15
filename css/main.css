@@ -1,0 +1,619 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+    font-family: 'Open Sans', sans-serif;
+    background-color:white;
+    width:100%;
+}
+
+a {
+    color: grey;
+}
+
+a:visited {
+    color: #551a8b;
+}
+
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+@font-face {
+  font-family: 'icomoon';
+  src:url('../fonts/icomoon.eot?-iv9wdl');
+  src:url('../fonts/icomoon.eot?#iefix-iv9wdl') format('embedded-opentype'),
+    url('../fonts/icomoon.woff?-iv9wdl') format('woff'),
+    url('../fonts/icomoon.ttf?-iv9wdl') format('truetype'),
+    url('../fonts/icomoon.svg?-iv9wdl#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-lock:before {content: "\e610";}
+.icon-uniE60D:before {content: "\e60d";}
+.icon-uniE600:before {content: "\e600";}
+.icon-uniE601:before {content: "\e601";}
+.icon-uniE60B:before {content: "\e60b";}
+.icon-uniE604:before {content: "\e604";}
+.icon-bell:before {content: "\e605";}
+.icon-thumbs-up:before {content: "\e602";}
+.icon-thumbs-up2:before {content: "\e603";}
+.icon-notification:before {content: "\e606";}
+.icon-arrow-right:before {content: "\e60e";font-weight: bold;font-size: 1.4em;}
+.icon-facebook:before {content: "\e607";font-size: 6em}
+.icon-uniE60C:before {content: "\e60c";}
+.icon-uniE60A:before {content: "\e60a";}
+.icon-user:before {content: "\e608";}
+.icon-bell2:before {content: "\e609";}
+
+
+header{
+  border-top:5px solid rgb(253, 124, 130);
+  width:100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 150px;
+
+}
+
+header a{
+  background: url(../img/logo.png)50% 0 no-repeat;
+  position: absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  margin:0px auto;
+  width: 362px;
+  height: 220px;
+  text-indent: -9999px;
+}
+
+.login_container{
+  position: relative;
+  max-width: 615px;
+  width:100%;
+  margin:150px auto 0px auto;
+}
+
+.holder_register{
+ width:190px;
+}
+
+#parallax{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow:hidden;
+}
+
+#parallax img{
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+#cerrar-sesion {
+  float:right;
+  margin:-130px 40px 0px 0px;
+  z-index:1000;
+}
+
+#cerrar-sesion a{
+  font-weight: normal;
+  font-size: 16px;
+  color:white;
+}
+
+#cerrar-sesion a span{
+  font-weight: bold;
+}
+
+/* Login Usuario ----------  */
+
+#cliente_imagen, #cliente_nombre{
+  width:100%;
+  max-width:190px;
+  text-align: center;
+  float: left;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 
+              0 3px 7px rgba(0, 0, 0, 0.3), 
+              inset 0 1px rgba(255,255,255,1), 
+              inset 0 -3px 2px rgba(0,0,0,0.25);
+  border-radius: 2px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+#cliente_imagen{
+  background-color: #EE3A43;
+  height: 188px;
+  color:white;
+}
+
+#cliente_imagen .circulo{
+  border-radius: 50%;
+  background-color: white;
+  width: 75%;
+  height: 75%;
+  margin: 22px auto;
+}
+
+/* Login register ----------  */
+
+#cliente_nombre{
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 70px;
+}
+
+#cliente_nombre a{
+  display:inline;
+  position: absolute;
+  left:0px;
+  padding: 23px;
+}
+
+
+/* Login form ----------  */
+
+#login-holder{
+  position: absolute;
+  right:0px;
+  max-width:400px;
+  width:100%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+
+  box-shadow: 
+        0 0 1px rgba(0, 0, 0, 0.3), 
+        0 3px 7px rgba(0, 0, 0, 0.3), 
+        inset 0 1px rgba(255,255,255,1),
+        inset 0 -3px 2px rgba(0,0,0,0.25);
+  border-radius: 2px;
+}
+
+#login-titulo{
+  font-size: 1.750em;
+  border-bottom: 2px solid rgb(255,92,0);
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+#login_input_container{
+  background-color: rgba(194,194,194,0.8);
+  border-radius: 3px;
+  padding: 8px;
+  margin: 10px auto;
+  display: inline-block;
+  width: 90%;
+}
+
+.campo{position:relative;}
+
+.campo span{
+  /* Size and position */
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    height: 36px;
+    width: 36px;
+ 
+    /* Line */
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.7);
+ 
+    /* Styles */
+    color: #777777;
+    text-align: center;
+    line-height: 42px;
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+}
+
+#login-holder input[type=text],
+#login-holder input[type=password] {
+    font-size: 13px;
+    font-weight: 400;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+ 
+    /* Size and position */
+    width: 82%;
+    padding: 10px 18px 10px 45px;
+ 
+    /* Styles */
+    border: none; /* Remove the default border */
+    box-shadow: 
+        inset 0 0 5px rgba(0,0,0,0.1),
+        inset 0 3px 2px rgba(0,0,0,0.1);
+    border-radius: 3px;
+    background: #f9f9f9;
+    color: #777;
+    transition: color 0.3s ease-out;
+}
+
+#login-holder input[type=text]:hover ~ span,
+#login-holder input[type=password]:hover ~ span {
+  color: #D26C4F;
+}
+
+#login-holder input[type=text]:focus ~ span,
+#login-holder input[type=password]:focus ~ span {
+  color: #DB4619;
+}
+
+#login-holder input[type=text]:focus,
+#login-holder input[type=password]:focus,
+#login-holder button[type=submit]:focus {
+    outline: none;
+}
+
+
+
+.submit-login{
+     /* Size and position */
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    bottom: 55px;
+    right: 0px;
+    padding: 10px;
+    z-index: 2;
+ 
+    /* Styles */
+    background: rgba(194,194,194,0.9);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 2px rgba(0,0,0,0.1),
+        0 3px 2px rgba(0,0,0,0.1),
+        inset 0 -3px 2px rgba(0,0,0,0.2);
+
+}
+
+#login-holder .submit-login:after {
+    /* Size and position */
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: -2px;
+    left: 30px;
+ 
+    /* Styles */
+    background: rgb(194,194,194);
+     
+    /* Other masks trick */
+    box-shadow: 0 72px rgb(194,194,194), -32px 32px rgb(194,194,194);
+}
+
+
+.submit-login button {
+  /* Size and position */
+    width: 100%;
+    height: 100%;
+    margin-top: -1px;
+ 
+    /* Icon styles */
+    font-size: 1.4em;
+    line-height: 1.75;
+    color: white;
+ 
+    /* Styles */
+    border: none; /* Remove the default border */
+    border-radius: inherit;
+    background:  linear-gradient(#1F1500, #443F3F);
+
+    box-shadow: 
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        0 1px 2px rgba(0,0,0,0.35),
+        inset 0 3px 2px rgba(255,255,255,0.2),
+        inset 0 -3px 2px rgba(0,0,0,0.1);
+ 
+    cursor: pointer;
+}
+
+.submit-login button:hover,
+.submit-login button[type=submit]:focus {
+    background: #EE3A43;
+    transition: all 0.3s ease-out;
+}
+ 
+.submit-login button:active {
+    background: #EE3A43;
+    box-shadow: 
+        inset 0 0 5px rgba(0,0,0,0.3),
+        inset 0 3px 4px rgba(0,0,0,0.3);
+}
+
+
+
+#checkbox_inputs_container a{
+    position: absolute;
+    right: 40px;
+    font-size: 1em;
+
+
+}
+
+
+/* ==========================================================================
+   Acceso monitoreadores
+   ========================================================================== */
+
+
+#map-canvas { 
+  height: 100%;
+  width: 100%;
+  background-color: #CCC;
+  margin-top: -155px;
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
+  z-index: -5;}
+
+#content{
+  margin:0 auto;
+  text-align: center;
+}
+
+#content #cliente{
+  font-size: 16px;
+}
+
+#content button{
+  margin:5px auto;
+  display:inline-block;
+  cursor:pointer;
+  font-family:Arial;
+  font-size:14px;
+  padding:6px 48px;
+  text-decoration:none;
+  width:100%;
+}
+
+#content .llamada {
+  -moz-box-shadow:inset 0px 1px 0px 0px #e67a73;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #e67a73;
+  box-shadow:inset 0px 1px 0px 0px #e67a73;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e4685d), color-stop(1, #eb675e));
+  background:-moz-linear-gradient(top, #e4685d 5%, #eb675e 100%);
+  background:-webkit-linear-gradient(top, #e4685d 5%, #eb675e 100%);
+  background:-o-linear-gradient(top, #e4685d 5%, #eb675e 100%);
+  background:-ms-linear-gradient(top, #e4685d 5%, #eb675e 100%);
+  background:linear-gradient(to bottom, #e4685d 5%, #eb675e 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e4685d', endColorstr='#eb675e',GradientType=0);
+  background-color:#e4685d;
+  border:1px solid #ffffff;
+  color:#ffffff;
+  text-shadow:0px 1px 0px #b23e35;
+}
+
+#content .llamada:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #eb675e), color-stop(1, #e4685d));
+  background:-moz-linear-gradient(top, #eb675e 5%, #e4685d 100%);
+  background:-webkit-linear-gradient(top, #eb675e 5%, #e4685d 100%);
+  background:-o-linear-gradient(top, #eb675e 5%, #e4685d 100%);
+  background:-ms-linear-gradient(top, #eb675e 5%, #e4685d 100%);
+  background:linear-gradient(to bottom, #eb675e 5%, #e4685d 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eb675e', endColorstr='#e4685d',GradientType=0);
+  background-color:#eb675e;
+}
+
+#content .llamada:active {
+  position:relative;
+  top:1px;
+}
+
+
+#content .vercamaras {
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+  background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+  background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+  background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+  background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+  background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+  background-color:#ffffff;
+  border:1px solid #dcdcdc;
+  color:#666666;
+  text-shadow:0px 1px 0px #ffffff;
+}
+
+#content .vercamaras:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+  background:-moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+  background:-webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+  background:-o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+  background:-ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+  background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+  background-color:#f6f6f6;
+}
+#content .vercamaras:active {
+  position:relative;
+  top:1px;
+}
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/* Prevent callout */
+
+.nocallout {
+    -webkit-touch-callout: none;
+}
+
+.pressed {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* A hack for HTML5 contenteditable attribute on mobile */
+
+textarea[contenteditable] {
+    -webkit-appearance: none;
+}
+
+/* A workaround for S60 3.x and 5.0 devices which do not animated gif images if
+   they have been set as display: none */
+
+.gifhidden {
+    position: absolute;
+    left: -100%;
+}
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    direction: ltr;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    text-indent: -999em;
+}
+
+.ir br {
+    display: none;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/**
+ * Clearfix helper
+ * Used to contain floats: h5bp.com/q
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   Theses examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 800px) {
+    /* Style adjustments for viewports that meet the condition */
+}
+

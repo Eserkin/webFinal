@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Trident Security",
+  "launch_path": "/index.html",
+  "description": "Sistema para control de alarmas online",
+  "icons": {
+    "60": "/img/touch/touch-icon-60x60.png",
+    "128": "/img/touch/touch-icon-128x128.png"
+  },
+
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "es",
+  "permissions": {
+  },
+  "locales": {
+    "es": {
+      "name": "Trident Security",
+      "description": "Sistema para el control de alarmas Online"
+    }
+  }
+}
