@@ -1,3 +1,20 @@
+<?php 
+    if(isset($_GET['validacion'])){
+        $validacion=1;
+    }else{
+        $validacion=0;
+    }
+    if(isset($_COOKIE["perfil"])){
+        include_once("redirigirPerfil.php");
+        redirigirPerfil($_COOKIE["perfil"]);
+    }
+    session_start();
+    if (isset($_SESSION["log"])){
+        include_once("redirigirPerfil.php");
+        redirigirPerfil($_SESSION["perfil"]);
+    }else{
+
+ ?>
 <!DOCTYPE html>
 <html class="no-js">
     <head>
@@ -60,7 +77,7 @@
         </div>
         
         <header>
-            <a href="index.html" title="Sistema para controlar alarmas online"></a>
+            <a href="index.php" title="Sistema para controlar alarmas online"></a>
         </header>
         
         <div class="login_container">
@@ -83,7 +100,7 @@
                 <!--  comienza login-inner -->
                 <div id="login-inner">
 
-                    <form action="#" method="post" accept-charset="utf-8">
+                    <form action="validacion.php" method="post" accept-charset="utf-8">
 
                         <div style="display:none">
                             <input type="hidden" name="turnocheck_nonce" value="18755f823fea022f617eb2c21c1208e8" />
@@ -101,6 +118,15 @@
                                     <input type="password" name="password" value="" id="password" class="login-inp clearfix" onfocus="this.value=''"placeholder="Contraseña"  />
                                     <span class="icon-lock"></span> 
                                 </p>
+                                <p color="red">
+                                    <?php 
+                                        if ($validacion){
+                                            ?>
+                                              Ha ingresado mal el usuario o contraseña.  
+                                            <?php
+                                        }
+                                     ?>
+                                </p>
 
                                 <p class="submit-login">
                                     <button type="submit" name="submit">
@@ -111,7 +137,7 @@
                             </div><!-- Cierre de login input container-->
 
                         <div id="checkbox_inputs_container">
-                                <input type="checkbox" name="remember" value="1" id="login-check" class="checkbox-size"  />        
+                                <input type="checkbox" name="recordar" value="1" id="login-check" class="checkbox-size"  />        
                                 <label for="login-check" id="label_recordarme">Recordarme</label>
                                 <a href="forgot_password" >Olvidé mi contraseña</a>    
                         </div>
@@ -137,3 +163,6 @@
 
     </body>
 </html>
+<?php 
+}
+ ?>

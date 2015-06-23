@@ -193,28 +193,39 @@
                                     Datos Básicos
                                 </div>
                                 <div class="panel-body">
-                                        <form role="form">
+                                        <form method="post" action="agregar.php">
                                             <div class="row">
                                                 <div class="col-lg-6">
 
                                                     <div class="form-group">
                                                         <label>Nombre</label>
-                                                        <input class="form-control" type="text" autofocus required>
+                                                        <input class="form-control" name="nombre" type="text" autofocus required>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Apellido</label>
-                                                        <input class="form-control" type="text" required>
+                                                        <input class="form-control" type="text" name="apellido" required>
                                                     </div>
-
+                                                    <div class="form-group">
+                                                        <label>Usuario</label>
+                                                        <input class="form-control" type="text" name="nick" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Contraseña</label>
+                                                        <input class="form-control" type="password" name="password" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Dni</label>
+                                                        <input class="form-control" type="number" name="dni" required>
+                                                    </div>
                                                     <div class="form-group">
                                                         <label>Tel:</label>
-                                                        <input class="form-control" type="text" required>
+                                                        <input class="form-control" type="text" name="telefono" required>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Email</label>
-                                                        <input class="form-control" type="email">
+                                                        <input class="form-control" name="email" type="email">
                                                     </div>
 
                                                 </div><!-- /. col Lg 6  -->
@@ -223,10 +234,10 @@
                                                     
                                                     <div class="form-group">
                                                         <label>Rol</label>
-                                                        <select class="form-control" required>
-                                                            <option>Cliente</option>
-                                                            <option>Monitoreador</option>
-                                                            <option>Administrador</option>
+                                                        <select class="form-control" name="perfil" required>
+                                                            <option value="1">Cliente</option>
+                                                            <option value="2">Monitoreador</option>
+                                                            <option value="3">Administrador</option>
                                                         </select>
                                                     </div>
 
@@ -234,17 +245,17 @@
                                                         <label>Plan contratado</label>
                                                         <div class="radio">
                                                             <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">Plan Básico 
+                                                                <input type="radio" name="plan" id="optionsRadios1" value="1" checked="">Plan Básico 
                                                             </label>
                                                         </div>
                                                         <div class="radio">
                                                             <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Plan Familiar 
+                                                                <input type="radio" name="plan" id="optionsRadios2" value="2">Plan Familiar 
                                                             </label>
                                                         </div>
                                                         <div class="radio">
                                                             <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Plan Enterprise 
+                                                                <input type="radio" name="plan" id="optionsRadios3" value="3">Plan Enterprise 
                                                             </label>
                                                         </div>
                                                     </div>

@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+    session_start();
+    if(isset($_SESSION["log"])){
+        if($_SESSION["perfil"]=="3"){
+
+?>
+<!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8" />
@@ -116,7 +122,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuración</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                        <li><a href="olvidar.php"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -205,3 +211,12 @@
    
 </body>
 </html>
+<?php 
+     }else{
+            header("Location:index.php");
+        }
+    }else{
+        header("Location:index.php");
+    }
+
+ ?>
