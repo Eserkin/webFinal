@@ -109,20 +109,20 @@
                             <div id='login_input_container'>
                                 
                                 <p class="campo">
-                                    <input type="text" name="login" value="" id="login" maxlength="80" class="login-inp clearfix" placeholder="E-mail"  />
+                                    <input type="text" name="login" value="" id="login" maxlength="80" class="login-inp clearfix" placeholder="Nick..."  />
                                     <span class="icon-user"></span> 
                                 </p>
                                     <!-- Si viene el fb_id  === true quiere decir que estoy asociando la cuenta de facebook del usuario con la de turnocheck -->
                                 
                                 <p class="campo">
-                                    <input type="password" name="password" value="" id="password" class="login-inp clearfix" onfocus="this.value=''"placeholder="Contraseña"  />
+                                    <input type="password" name="password" value="" id="password" class="login-inp clearfix" onfocus="this.value=''"placeholder="Clave..."  />
                                     <span class="icon-lock"></span> 
                                 </p>
                                 <p color="red">
                                     <?php 
                                         if ($validacion){
                                             ?>
-                                              Ha ingresado mal el usuario o contraseña.  
+                                              <p>Ha ingresado mal el usuario o contraseña.</p>  
                                             <?php
                                         }
                                      ?>
