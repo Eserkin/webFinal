@@ -6,7 +6,7 @@
 		if($perfil=="1"){
 			header("Location:user.html");				
 			}elseif($perfil=="2"){
-				header("Location:userCamaras.html");
+				header("Location:monitoreador.php");
 			}else{
 				header("Location:admin.html");
 			}
