@@ -5,7 +5,7 @@
 	$recordar=$_POST["recordar"];
 	require_once("funcionSQL.php");
 	$login=0;
-	$link=abriendoConexionSQL("localhost","root","seguridadlandia2");
+	$link=abriendoConexionSQL("localhost","root","seguridadlandia3.1");//ojo! cambiar nombre DB y pass para que funcione
 	if (!$link) header("Location:index.php");
 	$consulta=consultaDatos("SELECT * FROM usuario;");
 	while ($linea= mysql_fetch_array($consulta)){
