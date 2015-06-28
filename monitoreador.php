@@ -66,7 +66,7 @@
         <!--  Fin de googlemaps -->
 
         <div id="cerrar-sesion">
-            <a href="index.php"><span>X</span> Cerrar Sesión </a>
+            <a href="olvidar.php"><span>X</span> Cerrar Sesión </a>
         </div>
 
 
