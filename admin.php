@@ -1,9 +1,15 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+    session_start();
+    if(isset($_SESSION["log"])){
+        if($_SESSION["perfil"]=="3"){
+
+?>
+<!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Administrador- Control de usuarios</title>
+    <title>Cliente- </title>
     <meta name="description" content="">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -61,7 +67,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Trident</a>
+                <a class="navbar-brand" href="index.php">Trident</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -132,21 +138,21 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard"></i> Estadísiticas<span class="fa arrow"></span></a>
+                        <a class="active-menu" href="index.php"><i class="fa fa-dashboard"></i> Estadísiticas<span class="fa arrow"></span></a>
 
                         <ul class="nav nav-second-level" >
                             <li>
-                                <a href="adminGraficoClientes.html">
+                                <a href="adminGraficoClientes.php">
                                     <i class="fa fa-pie-chart"></i>Clientes por zona
                                 </a>
                             </li>
                             <li>
-                                <a href="adminGraficoCantAlarmas.html">
+                                <a href="adminGraficoCantAlarmas.php">
                                     <i class="fa fa-bar-chart"></i>Cantidad de alarmas
                                 </a>
                             </li>
                             <li>
-                                <a class="active-menu" href="adminGraficoAlarmasFecha.html">
+                                <a  href="adminGraficoAlarmasFecha.php">
                                     <i class="fa fa-line-chart"></i>Disparos por fecha
                                 </a>
                             </li>
@@ -154,17 +160,17 @@
                     </li>
                     
                     <li>
-                        <a href="adminUsuarios.html"><i class="fa fa-users"></i></i> Usuarios</a>
-                    </li>
-					<li>
-                        <a href="adminAlarmasHistorial.html"><i class="fa fa-table"></i> Histórico de Alarmas</a>
+                        <a href="adminUsuarios.php"><i class="fa fa-users"></i></i> Usuarios</a>
                     </li>
                     <li>
-                        <a href="adminCobros.html"><i class="fa fa-money"></i></i> Cobros</a>
+                        <a href="adminAlarmasHistorial.php"><i class="fa fa-table"></i> Histórico de Alarmas</a>
+                    </li>
+                    <li>
+                        <a href="adminCobros.php"><i class="fa fa-money"></i></i> Cobros</a>
                     </li>
                     
                     <li>
-                        <a href="adminIngresarUsuarios.html"><i class="fa fa-user-plus"></i> Ingresar Usuario </a>
+                        <a href="adminIngresarUsuarios.php"><i class="fa fa-user-plus"></i> Ingresar Usuario </a>
                     </li>
 
                 </ul>
@@ -173,35 +179,19 @@
 
         </nav>
         <!-- /. NAV SIDE  -->
-
         <div id="page-wrapper" >
             <div id="page-inner">
-             <div class="row">
+
+			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Estadísticas   <small>Alarmas disparadas por fecha</small>
+                            Empty Page <small>Create new page.</small>
                         </h1>
                     </div>
                 </div> 
-                 <!-- /. ROW  -->
-
-                <div class="row"> 
-                    
-                    <div class="col-md-12 col-sm-12 col-xs-12">                     
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Gráfico de línea
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-area-chart"></div>
-                            </div>
-                        </div>            
-                    </div> 
-                
-                </div>
-            
-                 
-                </div>
+              
+              
+				</div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
@@ -221,3 +211,12 @@
    
 </body>
 </html>
+<?php 
+     }else{
+            header("Location:index.php");
+        }
+    }else{
+        header("Location:index.php");
+    }
+
+ ?>

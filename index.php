@@ -122,7 +122,7 @@
                                     <?php 
                                         if ($validacion){
                                             ?>
-                                              <p>Ha ingresado mal el usuario o contraseña.</p>  
+                                              <p style="color:red;">Ha ingresado mal el usuario o contraseña.</p>  
                                             <?php
                                         }
                                      ?>

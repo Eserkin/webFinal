@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+    session_start();
+    if(isset($_SESSION["log"])){
+        if($_SESSION["perfil"]=="3"){
+
+?>
+<!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8" />
@@ -46,6 +52,9 @@
     <link href="css/admin/bootstrap.css" rel="stylesheet" />
     <link href="css/admin/font-awesome.css" rel="stylesheet" />
     <link href="css/admin/estilos.css" rel="stylesheet" />
+
+    <!-- TABLE STYLES-->
+    <link href="css/admin/dataTables.bootstrap.css" rel="stylesheet" />
     
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
@@ -61,7 +70,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Trident</a>
+                <a class="navbar-brand" href="index.php">Trident</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -132,21 +141,21 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard"></i> Estadísiticas<span class="fa arrow"></span></a>
+                        <a href="index.php"><i class="fa fa-dashboard"></i> Estadísiticas<span class="fa arrow"></span></a>
 
                         <ul class="nav nav-second-level" >
                             <li>
-                                <a href="adminGraficoClientes.html">
+                                <a href="adminGraficoClientes.php">
                                     <i class="fa fa-pie-chart"></i>Clientes por zona
                                 </a>
                             </li>
                             <li>
-                                <a href="adminGraficoCantAlarmas.html">
+                                <a href="adminGraficoCantAlarmas.php">
                                     <i class="fa fa-bar-chart"></i>Cantidad de alarmas
                                 </a>
                             </li>
                             <li>
-                                <a href="adminGraficoAlarmasFecha.html">
+                                <a href="adminGraficoAlarmasFecha.php">
                                     <i class="fa fa-line-chart"></i>Disparos por fecha
                                 </a>
                             </li>
@@ -154,17 +163,17 @@
                     </li>
                     
                     <li>
-                        <a href="adminUsuarios.html"><i class="fa fa-users"></i></i> Usuarios</a>
+                        <a class="active-menu" href="adminUsuarios.php"><i class="fa fa-users"></i></i> Usuarios</a>
                     </li>
                     <li>
-                        <a href="adminAlarmasHistorial.html"><i class="fa fa-table"></i> Histórico de Alarmas</a>
+                        <a href="adminAlarmasHistorial.php"><i class="fa fa-table"></i> Histórico de Alarmas</a>
                     </li>
                     <li>
-                        <a href="adminCobros.html"><i class="fa fa-money"></i></i> Cobros</a>
+                        <a href="adminCobros.php"><i class="fa fa-money"></i></i> Cobros</a>
                     </li>
                     
                     <li>
-                        <a class="active-menu" href="adminIngresarUsuarios.html"><i class="fa fa-user-plus"></i> Ingresar Usuario </a>
+                        <a href="adminIngresarUsuarios.php"><i class="fa fa-user-plus"></i> Ingresar Usuario </a>
                     </li>
 
                 </ul>
@@ -174,105 +183,119 @@
         </nav>
         <!-- /. NAV SIDE  -->
 
-
         <div id="page-wrapper" >
             <div id="page-inner">
 
-			        <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="page-header">
-                                Ingreso de nuevos usuarios
-                            </h1>
+			 <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            Usuarios <small>Un texto secundario</small>
+                        </h1>
+                    </div>
+                </div> 
+              
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                             Clientes
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>DNI</th>
+                                            <th>Dirección</th>
+                                            <th>Teléfono</th>
+                                            <th>E-mail</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                            include_once("funcionSQL.php");
+                                            abriendoConexionSQL();
+                                            $consulta=consultaDatos("")
+                                         ?>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            
                         </div>
                     </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+            <!-- /. ROW  -->
 
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    Datos Básicos
-                                </div>
-                                <div class="panel-body">
-                                        <form method="post" action="agregar.php">
-                                            <div class="row">
-                                                <div class="col-lg-6">
+            <div class="row">
+                 <div class="col-md-12">
+                     <!--   Basic Table  -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Monitoreadores
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Zona</th>
+                                            <th>Turno</th>
+                                            <th>Sueldo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="center">1</td>
+                                            <td>Luciano</td>
+                                            <td>Castro</td>
+                                            <td>Zona1</td>
+                                            <td>Noche</td>
+                                            <td>$ 8500 x Mes</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="center">2</td>
+                                            <td>Pepe</td>
+                                            <td>Argento</td>
+                                            <td>Zona2</td>
+                                            <td>Noche</td>
+                                            <td>$ 8500 x Mes</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="center">3</td>
+                                            <td>Marcela </td>
+                                            <td>Tinner</td>
+                                            <td>Zona1</td>
+                                            <td>Mañana</td>
+                                            <td>$ 7500 x Mes</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="center">4</td>
+                                            <td>Gabriel </td>
+                                            <td>Keppler</td>
+                                            <td>Zona2</td>
+                                            <td>Mañana</td>
+                                            <td>$ 7500 x Mes</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                      <!-- End  Basic Table  -->
+                </div>
+            </div>
+            <!-- /. ROW  -->
 
-                                                    <div class="form-group">
-                                                        <label>Nombre</label>
-                                                        <input class="form-control" name="nombre" type="text" autofocus required>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label>Apellido</label>
-                                                        <input class="form-control" type="text" name="apellido" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Usuario</label>
-                                                        <input class="form-control" type="text" name="nick" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Contraseña</label>
-                                                        <input class="form-control" type="password" name="password" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Dni</label>
-                                                        <input class="form-control" type="number" name="dni" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Tel:</label>
-                                                        <input class="form-control" type="text" name="telefono" required>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label>Email</label>
-                                                        <input class="form-control" name="email" type="email">
-                                                    </div>
-
-                                                </div><!-- /. col Lg 6  -->
-                                                
-                                                <div class="col-lg-6">
-                                                    
-                                                    <div class="form-group">
-                                                        <label>Rol</label>
-                                                        <select class="form-control" name="perfil" required>
-                                                            <option value="1">Cliente</option>
-                                                            <option value="2">Monitoreador</option>
-                                                            <option value="3">Administrador</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label>Plan contratado</label>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="plan" id="optionsRadios1" value="1" checked="">Plan Básico 
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="plan" id="optionsRadios2" value="2">Plan Familiar 
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="plan" id="optionsRadios3" value="3">Plan Enterprise 
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <br>   
-
-                                                    <button type="reset" class="btn btn-default">Borrar</button>
-                                                    <button type="submit" class="btn btn-default">Enviar</button>
-
-                                                </div><!-- /. col Lg 6  -->
-                                                
-                                            </div>
-                                        </form>     
-                                </div><!-- / end Panel Body  -->
-                            
-                            </div><!-- / end Panel default  -->
-                        </div><!-- / end col lg 12  -->
-                    </div><!-- / end ROW  -->
 
 				</div>
              <!-- /. PAGE INNER  -->
@@ -287,10 +310,31 @@
     <script src="js/admin/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
     <script src="js/admin/jquery.metisMenu.js"></script>
+
+    <!-- DATA TABLE SCRIPTS -->
+    <script src="js/admin/jquery.dataTables.js"></script>
+    <script src="js/admin/dataTables.bootstrap.js"></script>
+    <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
+
       <!-- Custom Js -->
     <script src="js/admin/custom.js"></script>
+
+
 
     
    
 </body>
 </html>
+<?php 
+     }else{
+            header("Location:index.php");
+        }
+    }else{
+        header("Location:index.php");
+    }
+
+ ?>

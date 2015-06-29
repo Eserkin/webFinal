@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+    session_start();
+    if(isset($_SESSION["log"])){
+        if($_SESSION["perfil"]=="3"){
+
+?>
+<!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8" />
@@ -64,7 +70,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Trident</a>
+                <a class="navbar-brand" href="index.php">Trident</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -135,21 +141,21 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard"></i> Estadísiticas<span class="fa arrow"></span></a>
+                        <a href="index.php"><i class="fa fa-dashboard"></i> Estadísiticas<span class="fa arrow"></span></a>
 
                         <ul class="nav nav-second-level" >
                             <li>
-                                <a href="adminGraficoClientes.html">
+                                <a href="adminGraficoClientes.php">
                                     <i class="fa fa-pie-chart"></i>Clientes por zona
                                 </a>
                             </li>
                             <li>
-                                <a href="adminGraficoCantAlarmas.html">
+                                <a href="adminGraficoCantAlarmas.php">
                                     <i class="fa fa-bar-chart"></i>Cantidad de alarmas
                                 </a>
                             </li>
                             <li>
-                                <a href="adminGraficoAlarmasFecha.html">
+                                <a href="adminGraficoAlarmasFecha.php">
                                     <i class="fa fa-line-chart"></i>Disparos por fecha
                                 </a>
                             </li>
@@ -157,17 +163,17 @@
                     </li>
                     
                     <li>
-                        <a class="active-menu" href="adminUsuarios.html"><i class="fa fa-users"></i></i> Usuarios</a>
+                        <a href="adminUsuarios.php"><i class="fa fa-users"></i></i> Usuarios</a>
                     </li>
                     <li>
-                        <a href="adminAlarmasHistorial.html"><i class="fa fa-table"></i> Histórico de Alarmas</a>
+                        <a  href="adminAlarmasHistorial.php"><i class="fa fa-table"></i> Histórico de Alarmas</a>
                     </li>
                     <li>
-                        <a href="adminCobros.html"><i class="fa fa-money"></i></i> Cobros</a>
+                        <a class="active-menu" href="adminCobros.php"><i class="fa fa-money"></i></i> Cobros</a>
                     </li>
                     
                     <li>
-                        <a href="adminIngresarUsuarios.html"><i class="fa fa-user-plus"></i> Ingresar Usuario </a>
+                        <a href="adminIngresarUsuarios.php"><i class="fa fa-user-plus"></i> Ingresar Usuario </a>
                     </li>
 
                 </ul>
@@ -183,7 +189,7 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Usuarios <small>Un texto secundario</small>
+                            Alarmas 
                         </h1>
                     </div>
                 </div> 
@@ -193,213 +199,213 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             Clientes
+                             Histórico de alarmas y eventos
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Nombre</th>
-                                            <th>DNI</th>
-                                            <th>Dirección</th>
-                                            <th>Teléfono</th>
-                                            <th>E-mail</th>
-                                            <th>Estado</th>
+                                            <th>Usuario</th>
+                                            <th>Factura</th>
+                                            <th>Mes</th>
+                                            <th>Año</th>
+                                            <th>Estado factura</th>
+                                            <th>Estado cobro</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="odd">
+                                        <tr class="odd warning">
                                             <td>Cliente 1</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Junio</td>
+                                            <td>2015</td>
+                                            <td>En proceso</td>
+                                            <td>En proceso</td>
                                         </tr>
-                                        <tr class="even danger">
+                                        <tr class="even warning">
                                             <td>Cliente 2</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Desactivo</td>
+                                            <td>0001-2248</td>
+                                            <td>Junio</td>
+                                            <td>2015</td>
+                                            <td>En proceso</td>
+                                            <td>En proceso</td>
                                         </tr>
                                         <tr class="odd">
                                             <td>Cliente 3</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Junio</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
                                         <tr class="even">
                                             <td>Cliente 4</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
                                         <tr class="odd">
                                             <td>Cliente 5</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
                                         <tr class="even danger">
                                             <td>Cliente 6</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Desactivo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Inpaga</td>
                                         </tr>
-                                        <tr class="odd">
+                                        <tr class="odd danger">
                                             <td>Cliente 7</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Inpaga</td>
                                         </tr>
                                         <tr class="even">
                                             <td>Cliente 8</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
                                         <tr class="odd danger">
                                             <td>Cliente 9</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Desactivo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Inpaga</td>
                                         </tr>
                                         <tr class="even">
                                             <td>Cliente 10</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
                                         <tr class="odd">
                                             <td>Cliente 11</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
                                         <tr class="even">
                                             <td>Cliente 12</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
                                         <tr class="odd">
                                             <td>Cliente 13</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
                                         <tr class="even danger">
                                             <td>Cliente 14</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Desactivo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Inpaga</td>
                                         </tr>
-                                        <tr class="odd">
+                                        <tr class="odd danger">
                                             <td>Cliente 15</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Inpaga</td>
                                         </tr>
                                         <tr class="even">
                                             <td>Cliente 16</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
                                         <tr class="odd">
                                             <td>Cliente 17</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
                                         <tr class="even">
                                             <td>Cliente 18</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
                                         <tr class="odd">
                                             <td>Cliente 19</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
                                         <tr class="even danger">
                                             <td>Cliente 20</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Desactivo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Inpaga</td>
                                         </tr>
                                         <tr class="odd danger">
                                             <td>Cliente 21</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Desactivo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Inpaga</td>
                                         </tr>
                                         <tr class="even">
                                             <td>Cliente 22</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
-                                        <tr class="odd">
+                                        <tr class="odd danger">
                                             <td>Cliente 23</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Inpaga</td>
                                         </tr>
                                         <tr class="even">
                                             <td>Cliente 24</td>
-                                            <td>35246252</td>
-                                            <td>Peron 3387, San Justo.</td>
-                                            <td>46516984</td>
-                                            <td>emi.farno@gmail.com</td>
-                                            <td>Activo</td>
+                                            <td>0001-2248</td>
+                                            <td>Mayo</td>
+                                            <td>2015</td>
+                                            <td>Emitida</td>
+                                            <td>Pagada</td>
                                         </tr>
 
                                     </tbody>
@@ -409,70 +415,6 @@
                         </div>
                     </div>
                     <!--End Advanced Tables -->
-                </div>
-            </div>
-            <!-- /. ROW  -->
-
-            <div class="row">
-                 <div class="col-md-12">
-                     <!--   Basic Table  -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Monitoreadores
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Apellido</th>
-                                            <th>Zona</th>
-                                            <th>Turno</th>
-                                            <th>Sueldo</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="center">1</td>
-                                            <td>Luciano</td>
-                                            <td>Castro</td>
-                                            <td>Zona1</td>
-                                            <td>Noche</td>
-                                            <td>$ 8500 x Mes</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="center">2</td>
-                                            <td>Pepe</td>
-                                            <td>Argento</td>
-                                            <td>Zona2</td>
-                                            <td>Noche</td>
-                                            <td>$ 8500 x Mes</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="center">3</td>
-                                            <td>Marcela </td>
-                                            <td>Tinner</td>
-                                            <td>Zona1</td>
-                                            <td>Mañana</td>
-                                            <td>$ 7500 x Mes</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="center">4</td>
-                                            <td>Gabriel </td>
-                                            <td>Keppler</td>
-                                            <td>Zona2</td>
-                                            <td>Mañana</td>
-                                            <td>$ 7500 x Mes</td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                      <!-- End  Basic Table  -->
                 </div>
             </div>
             <!-- /. ROW  -->
@@ -503,10 +445,14 @@
 
       <!-- Custom Js -->
     <script src="js/admin/custom.js"></script>
-
-
-
-    
-   
 </body>
 </html>
+<?php 
+     }else{
+            header("Location:index.php");
+        }
+    }else{
+        header("Location:index.php");
+    }
+
+ ?>

@@ -57,7 +57,7 @@
     <body>
 
         <header>
-            <a href="index.html" title="Sistema para controlar alarmas online"></a>
+            <a href="index.php" title="Sistema para controlar alarmas online"></a>
         </header>
         
         

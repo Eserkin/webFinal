@@ -61,7 +61,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Trident</a>
+                <a class="navbar-brand" href="index.php">Trident</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -120,21 +120,26 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a href="userIndex.html"><i class="fa fa-dashboard"></i> Inicio</a>
+                        <a href="userIndex.php
+    "><i class="fa fa-dashboard"></i> Inicio</a>
                     </li>
                     
                     <li>
-                        <a href="userCamaras.html"><i class="fa fa-video-camera"></i> Cámaras IP</a>
+                        <a href="userCamaras.php
+    "><i class="fa fa-video-camera"></i> Cámaras IP</a>
                     </li>
                     <li>
-                        <a href="userFactura.html"><i class="fa fa-money"></i> Facturas</a>
+                        <a class="active-menu"  href="userFactura.php
+    "><i class="fa fa-money"></i> Facturas</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="userPlan.html"><i class="fa fa-arrow-circle-o-down"></i> Planes</a>
+                        <a href="userPlan.php
+    "><i class="fa fa-arrow-circle-o-down"></i> Planes</a>
                     </li>
                     
                     <li>
-                        <a href="userContacto.html"><i class="fa fa-envelope-o"></i> Contacto</a>
+                        <a href="userContacto.php
+    "><i class="fa fa-envelope-o"></i> Contacto</a>
                     </li>
 
                 </ul>
@@ -146,98 +151,63 @@
         <div id="page-wrapper" >
             <div id="page-inner">
 
-			 <div class="row">
+                <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Planes de precios
+                            Historial de facturas emitidas
                         </h1>
                     </div>
-             </div>
+                </div> 
 
-             <div class="row">
-                     <!-- item -->
-                <div class="col-md-4 text-center">
-                    <div class="panel panel-danger panel-pricing">
-                        <div class="panel-heading">
-                            <i class="fa fa-user"></i>
-                            <h3>Plan Básico</h3>
-                        </div>
-                        <div class="panel-body text-center">
-                            <p><strong>$200 / Mes</strong></p>
-                        </div>
-                        <ul class="list-group text-center">
-                            <li class="list-group-item"><i class="fa fa-check"></i> Uso personal</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Un router centralizado de seguridad</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Dos sensores de presencia</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Una alarma blindada</li> 
-                            <li class="list-group-item"><i class="fa fa-check"></i> Una batería de seguridad</li> 
-                            <li class="list-group-item"><i class="fa fa-check"></i> Servicio técnico en 96hs</li>
-                        </ul>
-                        <div class="panel-footer">
-                            <a class="btn btn-lg btn-block btn-danger" href="#">COMPRAR</a>
+			    <div class="row">
+                    <div class="col-md-12">  
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Abril 2015
+                                <i class="fa fa-eye pull-right"></i> 
+                                <i class="fa fa-download pull-right"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- /item -->
+                </div><!-- End ROW-->
 
-                <!-- item -->
-                <div class="col-md-4 text-center">
-                    <div class="panel panel-warning panel-pricing">
-                        <div class="panel-heading">
-                            <i class="fa fa-home"></i>
-                            <h3>Plan Familiar</h3>
-                        </div>
-                        <div class="panel-body text-center">
-                            <p><strong>$400 / Mes</strong></p>
-                        </div>
-                        <ul class="list-group text-center">
-                            <li class="list-group-item"><i class="fa fa-check"></i> Uso familiar</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Un router centralizado de seguridad</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Cuatro sensores de presencia</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Cuatro sensores de cierre de aperturas</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 2 Cámara IP</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Una alarma blindada</li> 
-                            <li class="list-group-item"><i class="fa fa-check"></i> Una batería de seguridad</li> 
-                            <li class="list-group-item"><i class="fa fa-check"></i> Servicio Técnico en 48 Hs</li>  
-                        </ul>
-                        <div class="panel-footer">
-                            <a class="btn btn-lg btn-block btn-warning" href="#">COMPRAR</a>
+                <div class="row">
+                    <div class="col-md-12">  
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Marzo 2015
+                                <i class="fa fa-eye pull-right"></i> 
+                                <i class="fa fa-download pull-right"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- /item -->
+                </div><!-- End ROW-->
 
-                <!-- item -->
-                <div class="col-md-4 text-center">
-                    <div class="panel panel-success panel-pricing">
-                        <div class="panel-heading">
-                            <i class="fa fa-building-o"></i>
-                            <h3>Plan Enterprise</h3>
-                        </div>
-                        <div class="panel-body text-center">
-                            <p><strong>$650 / Mes</strong></p>
-                        </div>
-                        <ul class="list-group text-center">
-                            <li class="list-group-item"><i class="fa fa-check"></i> Uso para PyMES</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Dos router centralizado de seguridad</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Seis sensores de presencia</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Seis sensores de cierre de aperturas</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Comunicador 3G</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 6 Cámara IP</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Una alarma blindada</li> 
-                            <li class="list-group-item"><i class="fa fa-check"></i> Una batería de seguridad</li> 
-                            <li class="list-group-item"><i class="fa fa-check"></i> Servicio Técnico en 24 Hs</li>
-                        </ul>
-                        <div class="panel-footer">
-                            <a class="btn btn-lg btn-block btn-success" href="#">COMPRAR</a>
+                <div class="row">
+                    <div class="col-md-12">  
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Febrero 2015
+                                <i class="fa fa-eye pull-right"></i> 
+                                <i class="fa fa-download pull-right"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- /item -->
-             </div>  
-              
-              
-			</div>
+                </div><!-- End ROW-->
+
+                <div class="row">
+                    <div class="col-md-12">  
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Enero 2015
+                                <i class="fa fa-eye pull-right"></i> 
+                                <i class="fa fa-download pull-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End ROW-->
+                    
+                  
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->

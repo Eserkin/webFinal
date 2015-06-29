@@ -1,9 +1,15 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+    session_start();
+    if(isset($_SESSION["log"])){
+        if($_SESSION["perfil"]=="3"){
+
+?>
+<!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cliente- </title>
+    <title>Administrador- Control de usuarios</title>
     <meta name="description" content="">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -61,7 +67,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Trident</a>
+                <a class="navbar-brand" href="index.php">Trident</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -73,12 +79,24 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>Administrador</strong>
+                                    <strong>Cliente 1</strong>
                                     <span class="pull-right text-muted">
                                         <em>Hoy</em>
                                     </span>
                                 </div>
-                                <div>En respuesta a su pregunta, le comento que....... </div>
+                                <div>Hola quisera ampliar el servicio y contratar el plan avanzado que incluye alarmas </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>Cliente 5</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Ayer</em>
+                                    </span>
+                                </div>
+                                <div>Hola, mi alarma esta andando mal, necesito un técnico que la revise.</div>
                             </a>
                         </li>
                         <li class="divider"></li>
@@ -120,21 +138,39 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a href="userIndex.html"><i class="fa fa-dashboard"></i> Inicio</a>
+                        <a href="index.php"><i class="fa fa-dashboard"></i> Estadísiticas<span class="fa arrow"></span></a>
+
+                        <ul class="nav nav-second-level" >
+                            <li>
+                                <a class="active-menu" href="adminGraficoClientes.php">
+                                    <i class="fa fa-pie-chart"></i>Clientes por zona
+                                </a>
+                            </li>
+                            <li>
+                                <a href="adminGraficoCantAlarmas.php">
+                                    <i class="fa fa-bar-chart"></i>Cantidad de alarmas
+                                </a>
+                            </li>
+                            <li>
+                                <a href="adminGraficoAlarmasFecha.php">
+                                    <i class="fa fa-line-chart"></i>Disparos por fecha
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     
                     <li>
-                        <a href="userCamaras.html"><i class="fa fa-video-camera"></i> Cámaras IP</a>
+                        <a href="adminUsuarios.php"><i class="fa fa-users"></i></i> Usuarios</a>
                     </li>
                     <li>
-                        <a href="userFactura.html"><i class="fa fa-money"></i> Facturas</a>
+                        <a href="adminAlarmasHistorial.php"><i class="fa fa-table"></i> Histórico de Alarmas</a>
                     </li>
                     <li>
-                        <a href="userPlan.html"><i class="fa fa-arrow-circle-o-down"></i> Planes</a>
+                        <a href="adminCobros.php"><i class="fa fa-money"></i></i> Cobros</a>
                     </li>
                     
                     <li>
-                        <a class="active-menu" href="userContacto.html"><i class="fa fa-envelope-o"></i> Contacto</a>
+                        <a href="adminIngresarUsuarios.php"><i class="fa fa-user-plus"></i> Ingresar Usuario </a>
                     </li>
 
                 </ul>
@@ -143,68 +179,49 @@
 
         </nav>
         <!-- /. NAV SIDE  -->
+
         <div id="page-wrapper" >
             <div id="page-inner">
-
-			    <div class="row">
+             <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Contacto- <small>Lo asesoraremos al instante.</small>
+                            Estadísticas- <small>Clientes que adquieren el servicio por zona</small>
                         </h1>
                     </div>
                 </div> 
+                 <!-- /. ROW  -->
 
-                <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    Datos Básicos
-                                </div>
-                                <div class="panel-body">
-                                        <form role="form">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-
-
-                                                    <div class="form-group">
-                                                        <label>Asunto:</label>
-                                                        <input class="form-control" type="text" autofocus required>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label>Tel de contacto:</label>
-                                                        <input class="form-control" type="text">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label>Email:</label>
-                                                        <input class="form-control" type="email" required>
-                                                    </div>
-
-                                                </div><!-- /. col Lg 6  -->
-                                                
-                                                <div class="col-lg-6">
-
-                                                    <div class="form-group">
-                                                        <label>Mensaje:</label>
-                                                        <textarea class="form-control" rows="6" required></textarea>
-                                                    </div>
-
-                                                    <button type="reset" class="btn btn-danger"><i class="fa fa-trash-o"></i> Borrar</button>
-                                                    <button type="submit" class="btn btn-success">Enviar <i class="fa fa-arrow-right"></i></button>
-
-                                                </div><!-- /. col Lg 6  -->
-                                                
-                                            </div>
-                                        </form>     
-                                </div><!-- / end Panel Body  -->
-                            
-                            </div><!-- / end Panel default  -->
-                        </div><!-- / end col lg 12  -->
-                    </div><!-- / end ROW  -->
-              
-              
-				</div>
+                 <div class="row"> 
+                    
+                    <div class="col-md-12 col-sm-12 col-xs-12">                     
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Gráfico de barras
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-area-chart"></div>
+                            </div>
+                        </div>            
+                    </div> 
+                
+                 </div>
+             
+                <div class="row"> 
+                      
+                    <div class="col-md-6 col-sm-12 col-xs-12">                     
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Gráfico de torta
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-bar-chart"></div>
+                            </div>
+                        </div>            
+                    </div>
+                
+                </div>
+                 
+                </div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
@@ -224,3 +241,12 @@
    
 </body>
 </html>
+<?php 
+     }else{
+            header("Location:index.php");
+        }
+    }else{
+        header("Location:index.php");
+    }
+
+ ?>

@@ -61,7 +61,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Trident</a>
+                <a class="navbar-brand" href="index.php">Trident</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -120,21 +120,21 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="userIndex.html"><i class="fa fa-dashboard"></i> Inicio</a>
+                        <a href="userIndex.php"><i class="fa fa-dashboard"></i> Inicio</a>
                     </li>
                     
                     <li>
-                        <a href="userCamaras.html"><i class="fa fa-video-camera"></i> Cámaras IP</a>
+                        <a href="userCamaras.php"><i class="fa fa-video-camera"></i> Cámaras IP</a>
                     </li>
                     <li>
-                        <a href="userFactura.html"><i class="fa fa-money"></i> Facturas</a>
+                        <a href="userFactura.php"><i class="fa fa-money"></i> Facturas</a>
                     </li>
                     <li>
-                        <a href="userPlan.html"><i class="fa fa-arrow-circle-o-down"></i> Planes</a>
+                        <a href="userPlan.php"><i class="fa fa-arrow-circle-o-down"></i> Planes</a>
                     </li>
                     
                     <li>
-                        <a href="userContacto.html"><i class="fa fa-envelope-o"></i> Contacto</a>
+                        <a class="active-menu" href="userContacto.php"><i class="fa fa-envelope-o"></i> Contacto</a>
                     </li>
 
                 </ul>
@@ -146,81 +146,65 @@
         <div id="page-wrapper" >
             <div id="page-inner">
 
-                <div class="row">
+			    <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Hola ... <small>Bienvenido a su panel de control.</small>
+                            Contacto- <small>Lo asesoraremos al instante.</small>
                         </h1>
                     </div>
                 </div> 
 
-			    <div class="row">
-                    <div class="col-md-6">
-                       
-                     <!--  Modals-->
-                        <div class="panel panel-danger">
-                            <div class="panel-heading">
-                                Llamada de Emergencia
-                            </div>
-                            <div class="panel-body">
-                                <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">
-                                  LLamar al 911
-                                </button>
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                <h4 class="modal-title" id="myModalLabel">Esta a punto de llamar al 911</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                Recuerde que si no esta seguro pimero puede llamar a la alarma interna de la empresa para que técnicos puedan ir a verificar al lugar de socorro. 
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
-                                                <button type="button" class="btn btn-danger">LLAMAR</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Datos Básicos
                                 </div>
-                            </div>
-                        </div>
-                     <!-- End Modals-->
-                    </div><!-- End col-MD 6-->
-                    
-                    <div class="col-md-6">
-                     <!--  Modals-->
-                        <div class="panel panel-warning">
-                            <div class="panel-heading">
-                                Activar alarma interna
-                            </div>
-                            <div class="panel-body">
-                                <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal2">
-                                  Seguridad de la empresa
-                                </button>
-                                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                <h4 class="modal-title" id="myModalLabel">Esta a punto de activar la seguridad interna de la empresa</h4>
+                                <div class="panel-body">
+                                        <form role="form">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+
+
+                                                    <div class="form-group">
+                                                        <label>Asunto:</label>
+                                                        <input class="form-control" type="text" autofocus required>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Tel de contacto:</label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Email:</label>
+                                                        <input class="form-control" type="email" required>
+                                                    </div>
+
+                                                </div><!-- /. col Lg 6  -->
+                                                
+                                                <div class="col-lg-6">
+
+                                                    <div class="form-group">
+                                                        <label>Mensaje:</label>
+                                                        <textarea class="form-control" rows="6" required></textarea>
+                                                    </div>
+
+                                                    <button type="reset" class="btn btn-danger"><i class="fa fa-trash-o"></i> Borrar</button>
+                                                    <button type="submit" class="btn btn-success">Enviar <i class="fa fa-arrow-right"></i></button>
+
+                                                </div><!-- /. col Lg 6  -->
+                                                
                                             </div>
-                                            <div class="modal-body">
-                                                Se trasladaran a su domicilio personal de seguridad interno de la empresa. Por razones legales ellos no portaran armas pero podrán corroborar que todo este en orden. 
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
-                                                <button type="button" class="btn btn-warning">ACTIVAR</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                     <!-- End Modals-->
-                    </div><!-- End col-MD 6-->
-                 </div><!-- End ROW->
+                                        </form>     
+                                </div><!-- / end Panel Body  -->
+                            
+                            </div><!-- / end Panel default  -->
+                        </div><!-- / end col lg 12  -->
+                    </div><!-- / end ROW  -->
               
+              
+				</div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->

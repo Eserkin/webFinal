@@ -61,7 +61,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Trident</a>
+                <a class="navbar-brand" href="index.php">Trident</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -120,21 +120,21 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a href="userIndex.html"><i class="fa fa-dashboard"></i> Inicio</a>
+                        <a class="active-menu" href="userIndex.php"><i class="fa fa-dashboard"></i> Inicio</a>
                     </li>
                     
                     <li>
-                        <a href="userCamaras.html"><i class="fa fa-video-camera"></i> Cámaras IP</a>
+                        <a href="userCamaras.php"><i class="fa fa-video-camera"></i> Cámaras IP</a>
                     </li>
                     <li>
-                        <a class="active-menu"  href="userFactura.html"><i class="fa fa-money"></i> Facturas</a>
+                        <a href="userFactura.php"><i class="fa fa-money"></i> Facturas</a>
                     </li>
                     <li>
-                        <a href="userPlan.html"><i class="fa fa-arrow-circle-o-down"></i> Planes</a>
+                        <a href="userPlan.php"><i class="fa fa-arrow-circle-o-down"></i> Planes</a>
                     </li>
                     
                     <li>
-                        <a href="userContacto.html"><i class="fa fa-envelope-o"></i> Contacto</a>
+                        <a href="userContacto.php"><i class="fa fa-envelope-o"></i> Contacto</a>
                     </li>
 
                 </ul>
@@ -146,63 +146,16 @@
         <div id="page-wrapper" >
             <div id="page-inner">
 
-                <div class="row">
+			    <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Historial de facturas emitidas
+                            Empty Page <small>Create new page.</small>
                         </h1>
                     </div>
                 </div> 
-
-			    <div class="row">
-                    <div class="col-md-12">  
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Abril 2015
-                                <i class="fa fa-eye pull-right"></i> 
-                                <i class="fa fa-download pull-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End ROW-->
-
-                <div class="row">
-                    <div class="col-md-12">  
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Marzo 2015
-                                <i class="fa fa-eye pull-right"></i> 
-                                <i class="fa fa-download pull-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End ROW-->
-
-                <div class="row">
-                    <div class="col-md-12">  
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Febrero 2015
-                                <i class="fa fa-eye pull-right"></i> 
-                                <i class="fa fa-download pull-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End ROW-->
-
-                <div class="row">
-                    <div class="col-md-12">  
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Enero 2015
-                                <i class="fa fa-eye pull-right"></i> 
-                                <i class="fa fa-download pull-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End ROW-->
-                    
-                  
+              
+              
+				</div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->

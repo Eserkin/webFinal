@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+    session_start();
+    if(isset($_SESSION["log"])){
+        if($_SESSION["perfil"]=="3"){
+
+?>
+<!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8" />
@@ -64,7 +70,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Trident</a>
+                <a class="navbar-brand" href="index.php">Trident</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -135,21 +141,21 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard"></i> Estadísiticas<span class="fa arrow"></span></a>
+                        <a href="index.php"><i class="fa fa-dashboard"></i> Estadísiticas<span class="fa arrow"></span></a>
 
                         <ul class="nav nav-second-level" >
                             <li>
-                                <a href="adminGraficoClientes.html">
+                                <a href="adminGraficoClientes.php">
                                     <i class="fa fa-pie-chart"></i>Clientes por zona
                                 </a>
                             </li>
                             <li>
-                                <a href="adminGraficoCantAlarmas.html">
+                                <a href="adminGraficoCantAlarmas.php">
                                     <i class="fa fa-bar-chart"></i>Cantidad de alarmas
                                 </a>
                             </li>
                             <li>
-                                <a href="adminGraficoAlarmasFecha.html">
+                                <a href="adminGraficoAlarmasFecha.php">
                                     <i class="fa fa-line-chart"></i>Disparos por fecha
                                 </a>
                             </li>
@@ -157,17 +163,17 @@
                     </li>
                     
                     <li>
-                        <a href="adminUsuarios.html"><i class="fa fa-users"></i></i> Usuarios</a>
+                        <a href="adminUsuarios.php"><i class="fa fa-users"></i></i> Usuarios</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="adminAlarmasHistorial.html"><i class="fa fa-table"></i> Histórico de Alarmas</a>
+                        <a class="active-menu" href="adminAlarmasHistorial.php"><i class="fa fa-table"></i> Histórico de Alarmas</a>
                     </li>
                     <li>
-                        <a href="adminCobros.html"><i class="fa fa-money"></i></i> Cobros</a>
+                        <a href="adminCobros.php"><i class="fa fa-money"></i></i> Cobros</a>
                     </li>
                     
                     <li>
-                        <a href="adminIngresarUsuarios.html"><i class="fa fa-user-plus"></i> Ingresar Usuario </a>
+                        <a href="adminIngresarUsuarios.php"><i class="fa fa-user-plus"></i> Ingresar Usuario </a>
                     </li>
 
                 </ul>
@@ -446,3 +452,12 @@
    
 </body>
 </html>
+<?php 
+     }else{
+            header("Location:index.php");
+        }
+    }else{
+        header("Location:index.php");
+    }
+
+ ?>
