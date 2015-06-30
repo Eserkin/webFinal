@@ -206,6 +206,7 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
+                                            <th>Nro Cliente</th>
                                             <th>Nombre</th>
                                             <th>DNI</th>
                                             <th>Dirección</th>
@@ -217,8 +218,21 @@
                                     <tbody>
                                         <?php 
                                             include_once("funcionSQL.php");
-                                            abriendoConexionSQL();
-                                            $consulta=consultaDatos("")
+                                            $link=abriendoConexionSQL();
+                                            $consulta=consultaDatos("SELECT * FROM cliente JOIN usuario ON cliente.id=usuario.id JOIN sistema ON cliente.id=sistema.cliente_id;");
+                                            while ($registro = mysql_fetch_array($consulta)){
+                                                echo "<tr>";
+                                                echo "<td>".$registro['id']."</td>";
+                                                echo "<td>".$registro['nombre']."</td>";
+                                                echo "<td>".$registro['dni']."</td>";
+                                                echo "<td>".$registro['direccion']."</td>";
+                                                echo "<td>".$registro['telefono']."</td>";
+                                                echo "<td>".$registro['mail']."</td>";
+                                                echo "<td>".$registro['estado']."</td>";
+                                                echo "</tr>";
+                                            }
+                                            desconectarSQL($link);
+
                                          ?>
 
                                     </tbody>

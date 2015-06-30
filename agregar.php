@@ -5,7 +5,7 @@ session_start();
 			$nombre=$_POST["nombre"];
 			$apellido=$_POST["apellido"];
 			$nick=$_POST["nick"];
-			$clave=$_POST["password"];
+			$clave=md5($_POST["password"]);
 			$dni=$_POST["dni"];
 			$direccion=$_POST["direccion"];
 			$localidad=$_POST["localidad"];
@@ -40,7 +40,7 @@ session_start();
     					$consulta=consultaDatos("SELECT * FROM usuario WHERE nick='$nick';");
     					$line=mysql_fetch_assoc($consulta);
     					$id=$line['id'];
-    					if(consultaDatos("INSERT INTO monitoreador (id,turno) VALUES ('$id','$telefono');")){
+    					if(consultaDatos("INSERT INTO monitoreador (id,turno) VALUES ('$id','mañana');")){
   			   					header("Location:adminIngresarUsuarios.php?operacion=1");  	
   			   					desconectarSQL($link);
   			   					exit();						
@@ -55,7 +55,6 @@ session_start();
     					$consulta=consultaDatos("SELECT * FROM usuario WHERE nick='$nick';");
     					$line=mysql_fetch_assoc($consulta);
     					$id=$line['id'];
-    					echo $consulta." asdasdasd ".$id;
     					if(consultaDatos("INSERT INTO administrador (id) VALUES ('$id');")){
   			   					header("Location:adminIngresarUsuarios.php?operacion=1");  	
   			   					desconectarSQL($link);

@@ -1,7 +1,7 @@
 <?php
 
 	$usuario=$_POST["login"];
-	$password=$_POST["password"];
+	$password=md5($_POST["password"]);
 	$recordar=$_POST["recordar"];
 	require_once("funcionSQL.php");
 	$login=0;
