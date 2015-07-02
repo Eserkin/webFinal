@@ -14,7 +14,7 @@ session_start();
 			$fecha=date("Y-m-d");
 			$perfil=$_POST["perfil"];
 			$plan=$_POST["plan"];
-			include_once("funcionSQL.php"); 
+			include_once("funcionSQL.php");
 			$link=abriendoConexionSQL();
 
     		switch ($perfil) {
@@ -24,10 +24,11 @@ session_start();
     					$line=mysql_fetch_assoc($consulta);
     					$id=$line['id'];
     					if(consultaDatos("INSERT INTO cliente (id,telefono) VALUES ('$id','$telefono');")){
-    						if(consultaDatos("INSERT INTO sistema (direccion,codigo_desbloqueo,estado,cliente_id,localidad_id) VALUES ('$direccion','$clave','1','$id','$localidad');")){
-  			   					header("Location:adminIngresarUsuarios.php?operacion=1");  	
+    						$codigoDeDesbloqueo=rand(1000, 9999);//se autoasigna num aleatorio para el codigo del sistema
+                if(consultaDatos("INSERT INTO sistema (direccion,codigo_desbloqueo,estado,cliente_id,localidad_id) VALUES ('$direccion','$codigoDeDesbloqueo','1','$id','$localidad');")){
+  			   					header("Location:adminIngresarUsuarios.php?operacion=1");
   			   					desconectarSQL($link);
-  			   					exit();						
+  			   					exit();
     						}
     					}
     				}
@@ -41,9 +42,9 @@ session_start();
     					$line=mysql_fetch_assoc($consulta);
     					$id=$line['id'];
     					if(consultaDatos("INSERT INTO monitoreador (id,turno) VALUES ('$id','mañana');")){
-  			   					header("Location:adminIngresarUsuarios.php?operacion=1");  	
+  			   					header("Location:adminIngresarUsuarios.php?operacion=1");
   			   					desconectarSQL($link);
-  			   					exit();						
+  			   					exit();
     					}
     				}
  					header("Location:adminIngresarUsuarios.php?operacion=0");
@@ -56,9 +57,9 @@ session_start();
     					$line=mysql_fetch_assoc($consulta);
     					$id=$line['id'];
     					if(consultaDatos("INSERT INTO administrador (id) VALUES ('$id');")){
-  			   					header("Location:adminIngresarUsuarios.php?operacion=1");  	
+  			   					header("Location:adminIngresarUsuarios.php?operacion=1");
   			   					desconectarSQL($link);
-  			   					exit();						
+  			   					exit();
     					}
     				}
  					header("Location:adminIngresarUsuarios.php?operacion=0");

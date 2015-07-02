@@ -5,14 +5,14 @@
 	$recordar=$_POST["recordar"];
 	require_once("funcionSQL.php");
 	$login=0;
-	$link=abriendoConexionSQL("localhost","root","seguridadlandia3.1");//ojo! cambiar nombre DB y pass para que funcione
+	$link=abriendoConexionSQL("localhost","root","seguridadlandia3.3");//ojo! cambiar nombre DB y pass para que funcione
 	if (!$link) header("Location:index.php");
 	$consulta=consultaDatos("SELECT * FROM usuario;");
 	while ($linea= mysql_fetch_array($consulta)){
 		if ($usuario == $linea["nick"]){
 			if($password == $linea["clave"]){
 				$login=1;
-				$perfilUsuario=$linea["perfil_id"];	
+				$perfilUsuario=$linea["perfil_id"];
 			}
 		}
 	}

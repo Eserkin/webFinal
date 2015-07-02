@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    if(isset($_SESSION["log"])){
+        if($_SESSION["perfil"]=="1"){
+?>
 ﻿<!DOCTYPE html>
 <html class="no-js">
 <head>
@@ -41,12 +46,12 @@
         <!--
         <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
         -->
-        
+
     <!-- Hojas de Estilo -->
     <link href="css/admin/bootstrap.css" rel="stylesheet" />
     <link href="css/admin/font-awesome.css" rel="stylesheet" />
     <link href="css/admin/estilos.css" rel="stylesheet" />
-    
+
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
@@ -92,7 +97,7 @@
                     <!-- /.dropdown-messages -->
                 </li>
                 <!-- /.dropdown -->
-               
+
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -122,7 +127,7 @@
                     <li>
                         <a class="active-menu" href="userIndex.php"><i class="fa fa-dashboard"></i> Inicio</a>
                     </li>
-                    
+
                     <li>
                         <a href="userCamaras.php"><i class="fa fa-video-camera"></i> Cámaras IP</a>
                     </li>
@@ -132,7 +137,7 @@
                     <li>
                         <a href="userPlan.php"><i class="fa fa-arrow-circle-o-down"></i> Planes</a>
                     </li>
-                    
+
                     <li>
                         <a href="userContacto.php"><i class="fa fa-envelope-o"></i> Contacto</a>
                     </li>
@@ -144,7 +149,7 @@
         </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
-            <div id="page-inner">
+        <div id="page-inner">
 
 			    <div class="row">
                     <div class="col-md-12">
@@ -152,9 +157,14 @@
                             Empty Page <small>Create new page.</small>
                         </h1>
                     </div>
-                </div> 
-              
-              
+                    <div>
+                      <?php
+                          echo "<img src='codigoSistemaQr.php' width='200px' height='200px'/>";
+                       ?>
+                    </div>
+          </div>
+
+
 				</div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -171,7 +181,16 @@
       <!-- Custom Js -->
     <script src="js/admin/custom.js"></script>
 
-    
-   
+
+
 </body>
 </html>
+<?php
+     }else{
+            header("Location:index.php");
+        }
+    }else{
+        header("Location:index.php");
+    }
+
+ ?>

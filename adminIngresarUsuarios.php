@@ -1,4 +1,4 @@
-﻿<?php 
+﻿<?php
     session_start();
     if(isset($_SESSION["log"])){
         if($_SESSION["perfil"]=="3"){
@@ -47,12 +47,12 @@
         <!--
         <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
         -->
-        
+
     <!-- Hojas de Estilo -->
     <link href="css/admin/bootstrap.css" rel="stylesheet" />
     <link href="css/admin/font-awesome.css" rel="stylesheet" />
     <link href="css/admin/estilos.css" rel="stylesheet" />
-    
+
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
@@ -110,7 +110,7 @@
                     <!-- /.dropdown-messages -->
                 </li>
                 <!-- /.dropdown -->
-               
+
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -158,7 +158,7 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li>
                         <a href="adminUsuarios.php"><i class="fa fa-users"></i></i> Usuarios</a>
                     </li>
@@ -168,7 +168,7 @@
                     <li>
                         <a href="adminCobros.php"><i class="fa fa-money"></i></i> Cobros</a>
                     </li>
-                    
+
                     <li>
                         <a class="active-menu" href="adminIngresarUsuarios.php"><i class="fa fa-user-plus"></i> Ingresar Usuario </a>
                     </li>
@@ -202,7 +202,7 @@
                                         <form method="post" action="agregar.php">
                                             <div class="row">
                                                 <div class="col-lg-6">
-                                                    <?php 
+                                                    <?php
                                                         if(isset($_GET['operacion'])){
                                                             if($_GET['operacion'] == "1"){
                                                                 echo " <div class='form-group'> <label style='color:green;'> Se ha ingresado el Cliente con &Eacute;xito. </label> </div> ";
@@ -240,7 +240,7 @@
                                                     <div class="form-group">
                                                         <label>Localidad</label>
                                                         <select name="localidad" class="form-control" required>
-                                                        <?php 
+                                                        <?php
                                                             include_once("funcionSQL.php");
                                                             $link=abriendoConexionSQL();
                                                             $datosLocalidad=consultaDatos("SELECT * FROM localidad;");
@@ -248,7 +248,7 @@
                                                                 echo "<option value=".$line['id'].">".$line['nombre']."</option>";
                                                             }
                                                          ?>
-                                                        </select>        
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Tel:</label>
@@ -261,9 +261,9 @@
                                                     </div>
 
                                                 </div><!-- /. col Lg 6  -->
-                                                
+
                                                 <div class="col-lg-6">
-                                                    
+
                                                     <div class="form-group">
                                                         <label>Rol</label>
                                                         <select class="form-control" name="perfil" required>
@@ -277,31 +277,31 @@
                                                         <label>Plan contratado</label>
                                                         <div class="radio">
                                                             <label>
-                                                                <input type="radio" name="plan" id="optionsRadios1" value="1" checked="">Plan Básico 
+                                                                <input type="radio" name="plan" id="optionsRadios1" value="1" checked="">Plan Classic
                                                             </label>
                                                         </div>
                                                         <div class="radio">
                                                             <label>
-                                                                <input type="radio" name="plan" id="optionsRadios2" value="2">Plan Familiar 
+                                                                <input type="radio" name="plan" id="optionsRadios2" value="2">Plan Gold
                                                             </label>
                                                         </div>
                                                         <div class="radio">
                                                             <label>
-                                                                <input type="radio" name="plan" id="optionsRadios3" value="3">Plan Enterprise 
+                                                                <input type="radio" name="plan" id="optionsRadios3" value="3">Plan Platinum 
                                                             </label>
                                                         </div>
                                                     </div>
-                                                    <br>   
+                                                    <br>
 
                                                     <button type="reset" class="btn btn-default">Borrar</button>
                                                     <button type="submit" class="btn btn-default">Enviar</button>
 
                                                 </div><!-- /. col Lg 6  -->
-                                                
+
                                             </div>
-                                        </form>     
+                                        </form>
                                 </div><!-- / end Panel Body  -->
-                            
+
                             </div><!-- / end Panel default  -->
                         </div><!-- / end col lg 12  -->
                     </div><!-- / end ROW  -->
@@ -322,11 +322,11 @@
       <!-- Custom Js -->
     <script src="js/admin/custom.js"></script>
 
-    
-   
+
+
 </body>
 </html>
-<?php 
+<?php
      }else{
             header("Location:index.php");
         }

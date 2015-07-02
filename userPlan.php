@@ -41,12 +41,12 @@
         <!--
         <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
         -->
-        
+
     <!-- Hojas de Estilo -->
     <link href="css/admin/bootstrap.css" rel="stylesheet" />
     <link href="css/admin/font-awesome.css" rel="stylesheet" />
     <link href="css/admin/estilos.css" rel="stylesheet" />
-    
+
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
@@ -92,7 +92,7 @@
                     <!-- /.dropdown-messages -->
                 </li>
                 <!-- /.dropdown -->
-               
+
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -122,7 +122,7 @@
                     <li>
                         <a href="userIndex.php"><i class="fa fa-dashboard"></i> Inicio</a>
                     </li>
-                    
+
                     <li>
                         <a href="userCamaras.php"><i class="fa fa-video-camera"></i> Cámaras IP</a>
                     </li>
@@ -132,7 +132,7 @@
                     <li>
                         <a class="active-menu" href="userPlan.php"><i class="fa fa-arrow-circle-o-down"></i> Planes</a>
                     </li>
-                    
+
                     <li>
                         <a href="userContacto.php"><i class="fa fa-envelope-o"></i> Contacto</a>
                     </li>
@@ -160,18 +160,19 @@
                     <div class="panel panel-danger panel-pricing">
                         <div class="panel-heading">
                             <i class="fa fa-user"></i>
-                            <h3>Plan Básico</h3>
+                            <h3>Plan Classic</h3>
                         </div>
                         <div class="panel-body text-center">
                             <p><strong>$200 / Mes</strong></p>
                         </div>
                         <ul class="list-group text-center">
-                            <li class="list-group-item"><i class="fa fa-check"></i> Uso personal</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Instalación completa</li>
                             <li class="list-group-item"><i class="fa fa-check"></i> Un router centralizado de seguridad</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Dos sensores de presencia</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Una alarma blindada</li> 
-                            <li class="list-group-item"><i class="fa fa-check"></i> Una batería de seguridad</li> 
-                            <li class="list-group-item"><i class="fa fa-check"></i> Servicio técnico en 96hs</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Tres sensores de presencia</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Tres sensores de cierre de aperturas</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Una alarma blindada</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Una batería de seguridad</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Servicio técnico las 24hs</li>
                         </ul>
                         <div class="panel-footer">
                             <a class="btn btn-lg btn-block btn-danger" href="#">COMPRAR</a>
@@ -185,20 +186,20 @@
                     <div class="panel panel-warning panel-pricing">
                         <div class="panel-heading">
                             <i class="fa fa-home"></i>
-                            <h3>Plan Familiar</h3>
+                            <h3>Plan Gold</h3>
                         </div>
                         <div class="panel-body text-center">
                             <p><strong>$400 / Mes</strong></p>
                         </div>
                         <ul class="list-group text-center">
-                            <li class="list-group-item"><i class="fa fa-check"></i> Uso familiar</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Instalación completa</li>
                             <li class="list-group-item"><i class="fa fa-check"></i> Un router centralizado de seguridad</li>
                             <li class="list-group-item"><i class="fa fa-check"></i> Cuatro sensores de presencia</li>
                             <li class="list-group-item"><i class="fa fa-check"></i> Cuatro sensores de cierre de aperturas</li>
                             <li class="list-group-item"><i class="fa fa-check"></i> 2 Cámara IP</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Una alarma blindada</li> 
-                            <li class="list-group-item"><i class="fa fa-check"></i> Una batería de seguridad</li> 
-                            <li class="list-group-item"><i class="fa fa-check"></i> Servicio Técnico en 48 Hs</li>  
+                            <li class="list-group-item"><i class="fa fa-check"></i> Una alarma blindada</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Una batería de seguridad</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Servicio Técnico las 24 Hs</li>
                         </ul>
                         <div class="panel-footer">
                             <a class="btn btn-lg btn-block btn-warning" href="#">COMPRAR</a>
@@ -212,21 +213,21 @@
                     <div class="panel panel-success panel-pricing">
                         <div class="panel-heading">
                             <i class="fa fa-building-o"></i>
-                            <h3>Plan Enterprise</h3>
+                            <h3>Plan Platinum</h3>
                         </div>
                         <div class="panel-body text-center">
                             <p><strong>$650 / Mes</strong></p>
                         </div>
                         <ul class="list-group text-center">
-                            <li class="list-group-item"><i class="fa fa-check"></i> Uso para PyMES</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Instalación completa</li>
                             <li class="list-group-item"><i class="fa fa-check"></i> Dos router centralizado de seguridad</li>
                             <li class="list-group-item"><i class="fa fa-check"></i> Seis sensores de presencia</li>
                             <li class="list-group-item"><i class="fa fa-check"></i> Seis sensores de cierre de aperturas</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Comunicador 3G</li>
                             <li class="list-group-item"><i class="fa fa-check"></i> 6 Cámara IP</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Una alarma blindada</li> 
-                            <li class="list-group-item"><i class="fa fa-check"></i> Una batería de seguridad</li> 
-                            <li class="list-group-item"><i class="fa fa-check"></i> Servicio Técnico en 24 Hs</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Una alarma blindada</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Una batería de seguridad</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Comunicador 3G</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Servicio Técnico las 24 Hs</li>
                         </ul>
                         <div class="panel-footer">
                             <a class="btn btn-lg btn-block btn-success" href="#">COMPRAR</a>
@@ -234,9 +235,9 @@
                     </div>
                 </div>
                 <!-- /item -->
-             </div>  
-              
-              
+             </div>
+
+
 			</div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -253,7 +254,7 @@
       <!-- Custom Js -->
     <script src="js/admin/custom.js"></script>
 
-    
-   
+
+
 </body>
-</html>
+</htmlas

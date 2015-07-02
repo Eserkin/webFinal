@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION["log"])){
+        if($_SESSION["perfil"]=="2"){
+
+?>
 <!DOCTYPE html>
 <html class="no-js">
     <head>
@@ -41,27 +47,27 @@
         <!--
         <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
         -->
-        
+
         <!-- Hojas de Estilo -->
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/simplegrid.css" />
-        
+
         <!--Google Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
 
 
         <script src="js/vendor/modernizr-2.7.1.min.js"></script>
     </head>
-    
+
     <body>
 
         <header>
             <a href="index.php" title="Sistema para controlar alarmas online"></a>
         </header>
-        
+
         <div id="map-canvas">
-            
+
         </div>
         <!--  Fin de googlemaps -->
 
@@ -80,3 +86,12 @@
 
     </body>
 </html>
+<?php
+     }else{
+            header("Location:index.php");
+        }
+    }else{
+        header("Location:index.php");
+    }
+
+ ?>
