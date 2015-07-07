@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+    session_start();
+    $id=$_SESSION["id"];
+    include_once ("funcionSQL.php");
+    abriendoConexionSQL();
+    $consulta=consultaDatos("SELECT estado FROM sistema WHERE cliente_id=$id;");
+    $estado=mysql_result($consulta, '0');
+ ?>
+<!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8" />
@@ -149,7 +157,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Hola ... <small>Bienvenido a su panel de control.</small>
+                            Hola <?php  ?> <small>Bienvenido a su panel de control.</small>
                         </h1>
                     </div>
                 </div> 
@@ -178,7 +186,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
-                                                <button type="button" class="btn btn-danger">LLAMAR</button>
+                                                <button type="button" class="btn btn-danger" onclick="location.href=tel:44444444">LLAMAR</button>
                                             </div>
                                         </div>
                                     </div>
@@ -210,7 +218,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
-                                                <button type="button" class="btn btn-warning">ACTIVAR</button>
+                                                <button type="button" class="btn btn-warning" onclick="location.href='activarAlarma.php'"><?php if($estado == '1'){ echo "DESACTIVAR";}else{ echo "ACTIVAR";} ?></button>
                                             </div>
                                         </div>
                                     </div>

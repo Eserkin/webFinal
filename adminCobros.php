@@ -189,7 +189,7 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Alarmas 
+                            Cobros
                         </h1>
                     </div>
                 </div> 
@@ -199,7 +199,7 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             Histórico de alarmas y eventos
+                             Histórico de cobranzas
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -208,206 +208,30 @@
                                         <tr>
                                             <th>Usuario</th>
                                             <th>Factura</th>
-                                            <th>Mes</th>
-                                            <th>Año</th>
+                                            <th>Fecha de Factura</th>
                                             <th>Estado factura</th>
-                                            <th>Estado cobro</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="odd warning">
-                                            <td>Cliente 1</td>
-                                            <td>0001-2248</td>
-                                            <td>Junio</td>
-                                            <td>2015</td>
-                                            <td>En proceso</td>
-                                            <td>En proceso</td>
-                                        </tr>
-                                        <tr class="even warning">
-                                            <td>Cliente 2</td>
-                                            <td>0001-2248</td>
-                                            <td>Junio</td>
-                                            <td>2015</td>
-                                            <td>En proceso</td>
-                                            <td>En proceso</td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td>Cliente 3</td>
-                                            <td>0001-2248</td>
-                                            <td>Junio</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 4</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td>Cliente 5</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
-                                        <tr class="even danger">
-                                            <td>Cliente 6</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Inpaga</td>
-                                        </tr>
-                                        <tr class="odd danger">
-                                            <td>Cliente 7</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Inpaga</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 8</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
-                                        <tr class="odd danger">
-                                            <td>Cliente 9</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Inpaga</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 10</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td>Cliente 11</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 12</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td>Cliente 13</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
-                                        <tr class="even danger">
-                                            <td>Cliente 14</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Inpaga</td>
-                                        </tr>
-                                        <tr class="odd danger">
-                                            <td>Cliente 15</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Inpaga</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 16</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td>Cliente 17</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 18</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td>Cliente 19</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
-                                        <tr class="even danger">
-                                            <td>Cliente 20</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Inpaga</td>
-                                        </tr>
-                                        <tr class="odd danger">
-                                            <td>Cliente 21</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Inpaga</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 22</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
-                                        <tr class="odd danger">
-                                            <td>Cliente 23</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Inpaga</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 24</td>
-                                            <td>0001-2248</td>
-                                            <td>Mayo</td>
-                                            <td>2015</td>
-                                            <td>Emitida</td>
-                                            <td>Pagada</td>
-                                        </tr>
+                                        <?php 
+                                            include_once("funcionSQL.php");
+                                            $link=abriendoConexionSQL();
+                                            $consulta=consultaDatos("SELECT * FROM usuario JOIN cliente ON cliente.id=usuario.id JOIN factura ON cliente.id=factura.cliente_id; ");
+                                            while ($registro = mysql_fetch_array($consulta)){
+                                                echo "<tr>";
+                                                echo "<td>".$registro['nick']."</td>";
+                                                echo "<td>".$registro['nro_factura']."</td>";
+                                                echo "<td>".$registro['fecha']."</td>";
+                                                if($registro['estado'] == '1'){
+                                                    echo "<td> Pagado </td>";
+                                                }else{
+                                                    echo "<td> Adeuda </td>";
+                                                }
+                                                echo "</tr>";
+                                            }
+                                            desconectarSQL($link);
 
+                                         ?>
                                     </tbody>
                                 </table>
                             </div>

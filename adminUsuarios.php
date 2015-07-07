@@ -208,7 +208,7 @@
                                         <tr>
                                             <th>Nro Cliente</th>
                                             <th>Nombre</th>
-                                            <th>DNI</th>
+                                            <th>Apellido</th>
                                             <th>Dirección</th>
                                             <th>Teléfono</th>
                                             <th>E-mail</th>
@@ -224,11 +224,15 @@
                                                 echo "<tr>";
                                                 echo "<td>".$registro['id']."</td>";
                                                 echo "<td>".$registro['nombre']."</td>";
-                                                echo "<td>".$registro['dni']."</td>";
+                                                echo "<td>".$registro['apellido']."</td>";
                                                 echo "<td>".$registro['direccion']."</td>";
                                                 echo "<td>".$registro['telefono']."</td>";
                                                 echo "<td>".$registro['mail']."</td>";
-                                                echo "<td>".$registro['estado']."</td>";
+                                                if($registro['estado']=='1'){
+                                                    echo "<td>Al Dia</td>";
+                                                }else{
+                                                    echo "<td>Con Vencimiento </td>";
+                                                }
                                                 echo "</tr>";
                                             }
                                             desconectarSQL($link);
@@ -258,47 +262,31 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>Nro Monitoreador</th>
                                             <th>Nombre</th>
                                             <th>Apellido</th>
-                                            <th>Zona</th>
+                                            <th>Dni</th>
+                                            <th>E-mail</th>
                                             <th>Turno</th>
-                                            <th>Sueldo</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="center">1</td>
-                                            <td>Luciano</td>
-                                            <td>Castro</td>
-                                            <td>Zona1</td>
-                                            <td>Noche</td>
-                                            <td>$ 8500 x Mes</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="center">2</td>
-                                            <td>Pepe</td>
-                                            <td>Argento</td>
-                                            <td>Zona2</td>
-                                            <td>Noche</td>
-                                            <td>$ 8500 x Mes</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="center">3</td>
-                                            <td>Marcela </td>
-                                            <td>Tinner</td>
-                                            <td>Zona1</td>
-                                            <td>Mañana</td>
-                                            <td>$ 7500 x Mes</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="center">4</td>
-                                            <td>Gabriel </td>
-                                            <td>Keppler</td>
-                                            <td>Zona2</td>
-                                            <td>Mañana</td>
-                                            <td>$ 7500 x Mes</td>
-                                        </tr>
+                                        <?php 
+                                            include_once("funcionSQL.php");
+                                            $link=abriendoConexionSQL();
+                                            $consulta=consultaDatos("SELECT * FROM monitoreador JOIN usuario ON monitoreador.id=usuario.id;");
+                                            while ($registro = mysql_fetch_array($consulta)){
+                                                echo "<tr>";
+                                                echo "<td>".$registro['id']."</td>";
+                                                echo "<td>".$registro['nombre']."</td>";
+                                                echo "<td>".$registro['apellido']."</td>";
+                                                echo "<td>".$registro['dni']."</td>";
+                                                echo "<td>".$registro['mail']."</td>";
+                                                echo "<td>".$registro['turno']."</td>";
+                                            }
+                                            desconectarSQL($link);
+
+                                         ?>
                                         
                                     </tbody>
                                 </table>

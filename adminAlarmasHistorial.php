@@ -207,207 +207,26 @@
                                     <thead>
                                         <tr>
                                             <th>Usuario</th>
-                                            <th>Evento</th>
-                                            <th>Fecha</th>
-                                            <th>Hora inicio</th>
-                                            <th>Hora finalizado</th>
+                                            <th>Fecha de Inicio</th>
+                                            <th>Fecha de finalizaci&oacute;n</th>
                                             <th>Tipo de disparo</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="odd">
-                                            <td>Cliente 1</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
-                                        <tr class="even danger">
-                                            <td>Cliente 2</td>
-                                            <td>Sensores</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Falso</td>
-                                        </tr>
-                                        <tr class="odd info">
-                                            <td>Cliente 3</td>
-                                            <td>Activación manual</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Prueba</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 4</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td>Cliente 5</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
-                                        <tr class="even danger">
-                                            <td>Cliente 6</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Falso</td>
-                                        </tr>
-                                        <tr class="odd info">
-                                            <td>Cliente 7</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Prueba</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 8</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
-                                        <tr class="odd danger">
-                                            <td>Cliente 9</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Falso</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 10</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td>Cliente 11</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 12</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td>Cliente 13</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
-                                        <tr class="even danger">
-                                            <td>Cliente 14</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Falso</td>
-                                        </tr>
-                                        <tr class="odd info">
-                                            <td>Cliente 15</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Prueba</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 16</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td>Cliente 17</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 18</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td>Cliente 19</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
-                                        <tr class="even danger">
-                                            <td>Cliente 20</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Falso</td>
-                                        </tr>
-                                        <tr class="odd danger">
-                                            <td>Cliente 21</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Falso</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 22</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
-                                        <tr class="odd info">
-                                            <td>Cliente 23</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Prueba</td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>Cliente 24</td>
-                                            <td>Alarma interna</td>
-                                            <td>02/08/2014</td>
-                                            <td>14:00</td>
-                                            <td>14:40</td>
-                                            <td>Verdadero</td>
-                                        </tr>
+                                        <?php 
+                                            include_once("funcionSQL.php");
+                                            $link=abriendoConexionSQL();
+                                            $consulta=consultaDatos("SELECT * FROM usuario JOIN sistema ON usuario.id=sistema.cliente_id JOIN disparo ON disparo.sistema_id=sistema.id JOIN evento ON disparo.evento_id=evento.id;");
+                                            while ($registro = mysql_fetch_array($consulta)){
+                                                echo "<tr>";
+                                                echo "<td>".$registro['nick']."</td>";
+                                                echo "<td>".$registro['fecha_inicio']."</td>";
+                                                echo "<td>".$registro['fecha_finalizacion']."</td>";
+                                                echo "<td>".$registro['nombre']."</td>";
+                                            }
+                                            desconectarSQL($link);
 
+                                         ?>
                                     </tbody>
                                 </table>
                             </div>
