@@ -52,7 +52,7 @@
     <link href="css/admin/bootstrap.css" rel="stylesheet" />
     <link href="css/admin/font-awesome.css" rel="stylesheet" />
     <link href="css/admin/estilos.css" rel="stylesheet" />
-
+    <link href="css/admin/formValidation.min.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
@@ -199,8 +199,31 @@
                                     Datos Básicos
                                 </div>
                                 <div class="panel-body">
-                                        <form method="post" action="agregar.php">
+                                         <form id="ingresarUsuario" method="post" class="form-horizontal" action="agregar.php">
+                        
                                             <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Rol:</label>
+                                                        <div>
+                                                            <div class="radio">
+                                                                <label>
+                                                                    <input type="radio" name="rolUsuario" value="current" checked /> Monitoreador
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label>
+                                                                    <input type="radio" name="rolUsuario" value="current" /> Administrador
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label>
+                                                                    <input type="radio" name="rolUsuario" value="new" /> Cliente
+                                                                </label>
+                                                            </div>
+                                                        </div><!-- Fin de radios-->
+                                                    </div><!-- Fin de form group-->
+                                                </div><!-- Fin de col 6-->
                                                 <div class="col-lg-6">
                                                     <?php
                                                         if(isset($_GET['operacion'])){
@@ -212,93 +235,92 @@
                                                             }
                                                         }
                                                      ?>
-                                                    <div class="form-group">
-                                                        <label>Nombre</label>
-                                                        <input class="form-control" name="nombre" type="text" autofocus required>
-                                                    </div>
+                                                </div><!-- Fin de col 6-->
+                                            </div><!-- Fin de row-->
+                                            
 
+                                            <div class="row">
+                                                <div id="accesoGeneral" class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>Nombre</label>
+                                                            <input class="form-control" name="nombre" type="text" autofocus >
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Apellido</label>
+                                                            <input class="form-control" type="text" name="apellido" >
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Usuario</label>
+                                                            <input class="form-control" type="text" name="nick" >
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Contraseña</label>
+                                                            <input class="form-control" type="password" name="password" >
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Dni</label>
+                                                            <input class="form-control" type="number" name="dni" >
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Email</label>
+                                                            <input class="form-control" name="email" type="email">
+                                                        </div> 
+                                                </div><!--Fin de acceso general-->
+                                                
+                                                <div id="accesoCliente" class="col-lg-6">
+                                                    
                                                     <div class="form-group">
-                                                        <label>Apellido</label>
-                                                        <input class="form-control" type="text" name="apellido" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Usuario</label>
-                                                        <input class="form-control" type="text" name="nick" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Contraseña</label>
-                                                        <input class="form-control" type="password" name="password" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Dni</label>
-                                                        <input class="form-control" type="number" name="dni" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Direcci&oacute;n</label>
-                                                        <input class="form-control" type="text" name="direccion" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Localidad</label>
-                                                        <select name="localidad" class="form-control" required>
-                                                        <?php
-                                                            include_once("funcionSQL.php");
-                                                            $link=abriendoConexionSQL();
+
+                                                        <label >Localidad</label>
+                                                        <select name="localidad" class="form-control" disabled>
+                                                            <?php
+                                                               include_once("funcionSQL.php");
+                                                               $link=abriendoConexionSQL();
                                                             $datosLocalidad=consultaDatos("SELECT * FROM localidad;");
-                                                            while ($line = mysql_fetch_array($datosLocalidad)) {
-                                                                echo "<option value=".$line['id'].">".$line['nombre']."</option>";
-                                                            }
-                                                         ?>
+                                                               while ($line = mysql_fetch_array($datosLocalidad)) {
+                                                                   echo "<option value=".$line['id'].">".$line['nombre']."</option>";
+                                                               }
+                                                            ?>
                                                         </select>
                                                     </div>
+                                                    
                                                     <div class="form-group">
-                                                        <label>Tel:</label>
-                                                        <input class="form-control" type="text" name="telefono" required>
+                                                        <label >Dirección</label>
+                                                        <input type="text" class="form-control" name="direccion" disabled />
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label>Email</label>
-                                                        <input class="form-control" name="email" type="email">
-                                                    </div>
-
-                                                </div><!-- /. col Lg 6  -->
-
-                                                <div class="col-lg-6">
-
-                                                    <div class="form-group">
-                                                        <label>Rol</label>
-                                                        <select class="form-control" name="perfil" required>
-                                                            <option value="1">Cliente</option>
-                                                            <option value="2">Monitoreador</option>
-                                                            <option value="3">Administrador</option>
-                                                        </select>
+                                                        <label >Teléfono</label>
+                                                        <input type="text" class="form-control" name="telefono" disabled />
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Plan contratado</label>
                                                         <div class="radio">
                                                             <label>
-                                                                <input type="radio" name="plan" id="optionsRadios1" value="1" checked="">Plan Classic
+                                                                <input type="radio" name="plan" id="optionsRadios1" value="1" class="form-radio" checked="" disabled>Plan Classic
                                                             </label>
                                                         </div>
                                                         <div class="radio">
                                                             <label>
-                                                                <input type="radio" name="plan" id="optionsRadios2" value="2">Plan Gold
+                                                                <input type="radio" name="plan" id="optionsRadios2" value="2" class="form-radio" disabled>Plan Gold
                                                             </label>
                                                         </div>
                                                         <div class="radio">
                                                             <label>
-                                                                <input type="radio" name="plan" id="optionsRadios3" value="3">Plan Platinum 
+                                                                <input type="radio" name="plan" id="optionsRadios3" value="3" class="form-radio" disabled>Plan Platinum 
                                                             </label>
                                                         </div>
                                                     </div>
-                                                    <br>
 
                                                     <button type="reset" class="btn btn-default">Borrar</button>
+                                                    
                                                     <button type="submit" class="btn btn-default">Enviar</button>
-
-                                                </div><!-- /. col Lg 6  -->
-
+                                                </div><!--Fin de acceso a cliente-->
+                                                
                                             </div>
+                                            
+
                                         </form>
                                 </div><!-- / end Panel Body  -->
 
@@ -321,6 +343,119 @@
     <script src="js/admin/jquery.metisMenu.js"></script>
       <!-- Custom Js -->
     <script src="js/admin/custom.js"></script>
+    <!-- formvalidate Js -->
+    <script src="js/form/formValidation.min.js"></script>
+    <script src="js/form/bootstrap.min.js"></script>
+    <script src="js/form/es_ES.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            $('#ingresarUsuario').formValidation({
+                message: 'This value is not valid',
+                icon: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                locale: 'es_ES',
+                fields: {
+                    nombre: {
+                                validators: {
+                                    notEmpty: {
+                                    }
+                                }
+                            },
+                    apellido: {
+                                validators: {
+                                    notEmpty: {
+                                    }
+                                }
+                            },
+                    nick: {
+                                validators: {
+                                    notEmpty: {
+                                    }
+                                }
+                            },
+                    password: {
+                                validators: {
+                                    notEmpty: {
+                                    }
+                                }
+                            },
+                    dni: {
+                                validators: {
+                                    notEmpty: {
+                                    }
+                                }
+                            },
+                    email: {
+                                validators: {
+                                    notEmpty: {
+                                    }
+                                }
+                            },
+                    telefono: {
+                        enabled: false,
+                        validators: {
+                            notEmpty: {
+                            }
+                        }
+                    },
+                    direccion: {
+                        enabled: false,
+                        validators: {
+                            notEmpty: {
+                             
+                            }
+                        }
+                    },
+                    localidad: {
+                        enabled: false,
+                        validators: {
+                            notEmpty: {
+                                
+                            }
+                        }
+                    },
+                    plan: {
+                        enabled: false,
+                        validators: {
+                            notEmpty: {
+                                
+                            }
+                        }
+                    },
+
+                }
+            });
+
+            // Enable telefono/direccion/localidad validators if user want to ship to other address
+            $('input[name="rolUsuario"]').on('change', function() {
+                var formValidation = $('#ingresarUsuario').data('formValidation'),
+                    shipaccesoCliente     = ($(this).val() == 'new');
+
+                if(shipaccesoCliente){
+                    $('#accesoCliente').find('.form-control').removeAttr('disabled');
+                    $('#accesoCliente').find('.form-radio').removeAttr('disabled');
+                }
+                else{
+                    $('#accesoCliente').find('.form-control').attr('disabled', 'disabled');
+                    $('#accesoCliente').find('.form-radio').attr('disabled', 'disabled');
+                }
+
+
+                formValidation.enableFieldValidators('telefono', shipaccesoCliente)
+                                  .enableFieldValidators('direccion', shipaccesoCliente)
+                                  .enableFieldValidators('localidad', shipaccesoCliente)
+                                  .enableFieldValidators('plan', shipaccesoCliente);
+            });
+
+            
+        });
+        </script>
 
 
 
