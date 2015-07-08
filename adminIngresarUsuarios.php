@@ -290,6 +290,16 @@
                                                     </div>
 
                                                     <div class="form-group">
+                                                        <label >Latitud:</label>
+                                                        <input type="text" class="form-control" name="latitud" disabled />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label >Longitud</label>
+                                                        <input type="text" class="form-control" name="longitud" disabled />
+                                                    </div>
+
+                                                    <div class="form-group">
                                                         <label >Teléfono</label>
                                                         <input type="text" class="form-control" name="telefono" disabled />
                                                     </div>
@@ -412,6 +422,22 @@
                             }
                         }
                     },
+                    latitud: {
+                        enabled: false,
+                        validators: {
+                            notEmpty: {
+                             
+                            }
+                        }
+                    },
+                    longitud: {
+                        enabled: false,
+                        validators: {
+                            notEmpty: {
+                             
+                            }
+                        }
+                    },
                     localidad: {
                         enabled: false,
                         validators: {
@@ -449,6 +475,8 @@
 
                 formValidation.enableFieldValidators('telefono', shipaccesoCliente)
                                   .enableFieldValidators('direccion', shipaccesoCliente)
+                                  .enableFieldValidators('latitud', shipaccesoCliente)
+                                  .enableFieldValidators('longitud', shipaccesoCliente)
                                   .enableFieldValidators('localidad', shipaccesoCliente)
                                   .enableFieldValidators('plan', shipaccesoCliente);
             });
