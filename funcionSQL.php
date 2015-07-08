@@ -1,5 +1,5 @@
 <?php
-	function abriendoConexionSQL($host='localhost',$usuario='root',$bd='asd',$pass=''){
+	function abriendoConexionSQL($host='localhost',$usuario='root',$bd='asd2',$pass=''){
 		$conexion=mysql_connect($host,$usuario,$pass);
 		if(!mysql_select_db($bd)) return false;
 		return $conexion;

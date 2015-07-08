@@ -23,14 +23,16 @@ session_start();
     					$consulta=consultaDatos("SELECT * FROM usuario WHERE nick='$nick';");
     					$line=mysql_fetch_assoc($consulta);
     					$id=$line['id'];
-    					if(consultaDatos("INSERT INTO cliente (id,telefono) VALUES ('$id','$telefono');")){
+    					if(consultaDatos("INSERT INTO cliente (id,telefono,plan) VALUES ('$id','$telefono','$plan');")){
     						$codigoDeDesbloqueo=rand(1000, 9999);//se autoasigna num aleatorio para el codigo del sistema
                             if(consultaDatos("INSERT INTO sistema (direccion,codigo_desbloqueo,estado,cliente_id,localidad_id) VALUES ('$direccion','$codigoDeDesbloqueo','0','$id','$localidad');")){
   			   					include_once ("primerDia.php");
                                 $fecha=primerDia();                                    
                                     switch ($plan) {
                                         case '1':
-                                                if(consultaDatos("INSERT INTO factura(fecha,monto,nro_factura,estado,cliente_id) VALUES ('$fecha','5200.00','1','0','$id');")){
+                                                $consulta=consultaDatos("SELECT SUM(precio) FROM producto WHERE id='1' OR id='4';");
+                                                $monto=mysql_result($consulta, '0');
+                                                if(consultaDatos("INSERT INTO factura(fecha,monto,nro_factura,estado,cliente_id) VALUES ('$fecha','$monto','1','0','$id');")){
                                                     $consulta=consultaDatos("SELECT * FROM factura WHERE cliente_id='$id';");
                                                     $line=mysql_fetch_assoc($consulta);
                                                     $factura=$line['id'];
@@ -46,7 +48,9 @@ session_start();
                                             
                                             break;
                                         case '2':
-                                                if(consultaDatos("INSERT INTO factura(fecha,monto,nro_factura,estado,cliente_id) VALUES ('$fecha','7400.00','1','0','$id');")){
+                                                $consulta=consultaDatos("SELECT SUM(precio) FROM producto WHERE id='2' OR id='5';");
+                                                $monto=mysql_result($consulta, '0');
+                                                if(consultaDatos("INSERT INTO factura(fecha,monto,nro_factura,estado,cliente_id) VALUES ('$fecha','$monto','1','0','$id');")){
                                                     $consulta=consultaDatos("SELECT * FROM factura WHERE cliente_id='$id';");
                                                     $line=mysql_fetch_assoc($consulta);
                                                     $factura=$line['id'];
@@ -60,7 +64,9 @@ session_start();
                                                 }
                                             break;
                                         case '3':
-                                                if(consultaDatos("INSERT INTO factura(fecha,monto,nro_factura,estado,cliente_id) VALUES ('$fecha','8250.00','1','0','$id');")){
+                                                $consulta=consultaDatos("SELECT SUM(precio) FROM producto WHERE id='3' OR id='6';");
+                                                $monto=mysql_result($consulta, '0');
+                                                if(consultaDatos("INSERT INTO factura(fecha,monto,nro_factura,estado,cliente_id) VALUES ('$fecha','$monto','1','0','$id');")){
                                                     $consulta=consultaDatos("SELECT * FROM factura WHERE cliente_id='$id';");
                                                     $line=mysql_fetch_assoc($consulta);
                                                     $factura=$line['id'];

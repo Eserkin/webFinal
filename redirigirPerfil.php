@@ -4,7 +4,7 @@
 		$_SESSION["log"]=1;
 		$_SESSION["perfil"]=$perfil;
 		if($perfil=="1"){
-			header("Location:user.php");				
+			header("Location:userIndex.php");				
 			}elseif($perfil=="2"){
 				header("Location:monitoreador.php");
 			}else{

@@ -1,5 +1,7 @@
 ﻿<?php 
     session_start();
+if(isset($_SESSION["log"])){
+    if($_SESSION["perfil"]=="1"){
     $id=$_SESSION["id"];
     include_once ("funcionSQL.php");
     abriendoConexionSQL();
@@ -157,7 +159,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Hola <?php  ?> <small>Bienvenido a su panel de control.</small>
+                            Hola <?php echo $_SESSION["nick"]; ?> <small>Bienvenido a su panel de control.</small>
                         </h1>
                     </div>
                 </div> 
@@ -227,7 +229,20 @@
                         </div>
                      <!-- End Modals-->
                     </div><!-- End col-MD 6-->
-                 </div><!-- End ROW->
+                 </div><!-- End ROW-->
+                <div class="row">
+                    <div align='center' class="col-md-12">
+                        <div>
+                        <h3>C&oacute;digo de Seguridad</h3><br>
+                      <?php
+                          echo "<img src='codigoSistemaQr.php' width='250px' height='250px'/>";
+                       ?>
+                       <p>
+                           
+                       </p>
+                    </div>
+                    </div>
+                </div>
               
              <!-- /. PAGE INNER  -->
             </div>
@@ -248,3 +263,12 @@
    
 </body>
 </html>
+<?php
+     }else{
+            header("Location:index.php");
+        }
+    }else{
+        header("Location:index.php");
+    }
+
+ ?>

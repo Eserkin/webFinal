@@ -2,7 +2,6 @@
     session_start();
     if(isset($_SESSION["log"])){
         if($_SESSION["perfil"]=="3"){
-
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -181,21 +180,35 @@
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
-
-			 <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-header">
-                            Empty Page <small>Create new page.</small>
-                        </h1>
-                    </div>
+    			 <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="page-header">
+                                Hola <?php echo $_SESSION["nick"]; ?> <small>Bienvenido a su panel de control.</small>
+                            </h1>
+                        </div>
                 </div> 
-              
-              
-				</div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Generar facturas de el mes : <?php echo date('m-Y'); ?></h2>
+                        <br>
+                        <button class="btn btn-warning btn-lg" onclick="location.href='generarFacturas.php'">Generar Facturas</button>
+                        <?php
+                            if(isset($_GET["generacionFacturas"])){
+                                if($_GET["generacionFacturas"]=="1"){
+                                    echo "<h3 style='color:green;'> Se han generado las facturas con &eacute;xito.</h3> ";
+                                }else{
+                                    echo "<h3 style='color:red;'> Ha habido un error generando facturas.</h3> ";                                    
+                                }
+
+                            }
+                        ?>
+                    </div>
+                </div>
+		    </div>
              <!-- /. PAGE INNER  -->
-            </div>
-         <!-- /. PAGE WRAPPER  -->
         </div>
+         <!-- /. PAGE WRAPPER  -->
+    </div>
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->

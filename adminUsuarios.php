@@ -231,7 +231,7 @@
                                                 if($registro['estado']=='1'){
                                                     echo "<td>Al Dia</td>";
                                                 }else{
-                                                    echo "<td>Con Vencimiento </td>";
+                                                    echo "<td>Con deuda </td>";
                                                 }
                                                 echo "</tr>";
                                             }

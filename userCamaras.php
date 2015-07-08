@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<?php
+    session_start();
+    if(isset($_SESSION["log"])){
+        if($_SESSION["perfil"]=="1"){
+
+?>
+<!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8" />
@@ -225,3 +231,12 @@
    
 </body>
 </html>
+<?php
+     }else{
+            header("Location:index.php");
+        }
+    }else{
+        header("Location:index.php");
+    }
+
+ ?>

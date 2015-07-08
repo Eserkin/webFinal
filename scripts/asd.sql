@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-07-2015 a las 17:18:39
+-- Tiempo de generación: 08-07-2015 a las 05:35:05
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `asd`
+-- Base de datos: `asd2`
 --
 
 -- --------------------------------------------------------
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `administrador` (
 --
 
 INSERT INTO `administrador` (`id`) VALUES
-(1);
+(14);
 
 -- --------------------------------------------------------
 
@@ -55,21 +55,13 @@ CREATE TABLE IF NOT EXISTS `camaras` (
   `permitir_monitoreo` tinyint(1) NOT NULL COMMENT '0 no permitido - 1 permitido',
   `url` varchar(100) COLLATE utf8_spanish_ci NOT NULL COMMENT 'link de cam publica',
   `sistema_id` int(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- RELACIONES PARA LA TABLA `camaras`:
 --   `sistema_id`
 --       `sistema` -> `id`
 --
-
---
--- Volcado de datos para la tabla `camaras`
---
-
-INSERT INTO `camaras` (`id`, `descripcion`, `permitir_monitoreo`, `url`, `sistema_id`) VALUES
-(1, 'pasillo', 0, 'www.cam1.com', 2),
-(2, 'patio', 1, 'www.cam2.com', 2);
 
 -- --------------------------------------------------------
 
@@ -79,7 +71,8 @@ INSERT INTO `camaras` (`id`, `descripcion`, `permitir_monitoreo`, `url`, `sistem
 
 CREATE TABLE IF NOT EXISTS `cliente` (
   `id` int(30) NOT NULL,
-  `telefono` int(30) NOT NULL
+  `telefono` int(30) NOT NULL,
+  `plan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -92,17 +85,9 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id`, `telefono`) VALUES
-(2, 44860299),
-(4, 46695003),
-(5, 45896965),
-(6, 4887956),
-(7, 45687897),
-(8, 45688789),
-(9, 42115555),
-(10, 123123),
-(12, 123123),
-(13, 454545);
+INSERT INTO `cliente` (`id`, `telefono`, `plan`) VALUES
+(16, 4669, 2),
+(17, 123123, 2);
 
 -- --------------------------------------------------------
 
@@ -114,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `detalle` (
 `id` int(30) NOT NULL,
   `producto_id` int(30) NOT NULL,
   `factura_id` int(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- RELACIONES PARA LA TABLA `detalle`:
@@ -129,15 +114,10 @@ CREATE TABLE IF NOT EXISTS `detalle` (
 --
 
 INSERT INTO `detalle` (`id`, `producto_id`, `factura_id`) VALUES
-(1, 1, 1),
-(3, 3, 1),
-(8, 1, 2),
-(9, 2, 2),
-(10, 3, 2),
-(11, 1, 4),
-(12, 4, 4),
-(13, 2, 5),
-(14, 5, 5);
+(15, 1, 7),
+(16, 4, 7),
+(17, 2, 9),
+(18, 5, 9);
 
 -- --------------------------------------------------------
 
@@ -162,14 +142,6 @@ CREATE TABLE IF NOT EXISTS `disparo` (
 --       `evento` -> `id`
 --
 
---
--- Volcado de datos para la tabla `disparo`
---
-
-INSERT INTO `disparo` (`id`, `fecha_inicio`, `fecha_finalizacion`, `factor`, `sistema_id`, `evento_id`) VALUES
-(1, '2015-06-22 00:00:00', '0000-00-00 00:00:00', 1, 1, 1),
-(2, '2015-06-22 00:00:00', '0000-00-00 00:00:00', 0, 2, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -180,14 +152,6 @@ CREATE TABLE IF NOT EXISTS `evento` (
 `id` int(30) NOT NULL,
   `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `evento`
---
-
-INSERT INTO `evento` (`id`, `nombre`) VALUES
-(1, 'falta220v'),
-(2, 'reingreso_clave_erronea');
 
 -- --------------------------------------------------------
 
@@ -202,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `factura` (
   `nro_factura` int(11) NOT NULL,
   `estado` int(1) NOT NULL,
   `cliente_id` int(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- RELACIONES PARA LA TABLA `factura`:
@@ -215,11 +179,9 @@ CREATE TABLE IF NOT EXISTS `factura` (
 --
 
 INSERT INTO `factura` (`id`, `fecha`, `monto`, `nro_factura`, `estado`, `cliente_id`) VALUES
-(1, '2015-06-20', 0, 0, 0, 2),
-(2, '2015-06-21', 0, 0, 0, 4),
-(3, '2015-07-01', 5200, 1, 0, 10),
-(4, '2015-07-01', 5200, 1, 0, 12),
-(5, '2015-07-01', 7400, 1, 0, 13);
+(7, '2015-07-01', 4200, 1, 0, 16),
+(9, '2015-06-01', 5400, 1, 0, 17),
+(10, '2015-07-01', 5400, 2, 0, 17);
 
 -- --------------------------------------------------------
 
@@ -237,11 +199,8 @@ CREATE TABLE IF NOT EXISTS `localidad` (
 --
 
 INSERT INTO `localidad` (`id`, `nombre`) VALUES
-(1, 'Castelar'),
-(2, 'Haedo'),
-(3, 'Morón'),
-(4, 'Ramos Mejía'),
-(5, 'San Justo');
+(1, 'Casanova'),
+(2, 'Castelar');
 
 -- --------------------------------------------------------
 
@@ -265,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `monitoreador` (
 --
 
 INSERT INTO `monitoreador` (`id`, `turno`) VALUES
-(2, 'mañana');
+(15, 'mañana');
 
 -- --------------------------------------------------------
 
@@ -283,9 +242,9 @@ CREATE TABLE IF NOT EXISTS `perfil` (
 --
 
 INSERT INTO `perfil` (`id`, `nombre`) VALUES
-(1, 'cliente'),
-(2, 'monitoreador'),
-(3, 'administrador');
+(1, 'Cliente'),
+(2, 'Monitoreador'),
+(3, 'Administrador');
 
 -- --------------------------------------------------------
 
@@ -304,12 +263,12 @@ CREATE TABLE IF NOT EXISTS `producto` (
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `precio`) VALUES
-(1, 'Plan Basico', '5000.00'),
-(2, 'Plan Gold', '7000.00'),
-(3, 'Plan Platinium', '7600.00'),
-(4, 'Cuota Plan Classic', '200.00'),
-(5, 'Cuota Plan Gold', '400.00'),
-(6, 'Cuota Plan Premium', '650.00');
+(1, 'Plan Classic', '4000.00'),
+(2, 'Plan Silver', '5000.00'),
+(3, 'Plan Gold', '4.00'),
+(4, 'Cuota Classic', '200.00'),
+(5, 'Cuota Silver', '400.00'),
+(6, 'Cuota Gold', '650.00');
 
 -- --------------------------------------------------------
 
@@ -329,18 +288,6 @@ CREATE TABLE IF NOT EXISTS `sensores_de_apertura` (
 --       `sistema` -> `id`
 --
 
---
--- Volcado de datos para la tabla `sensores_de_apertura`
---
-
-INSERT INTO `sensores_de_apertura` (`id`, `descripcion`, `sistema_id`) VALUES
-(1, 'puerta_entrada', 1),
-(2, 'ventana_frente', 1),
-(3, 'puerta_fondo', 2),
-(4, 'puerta_entrada', 2),
-(5, 'ventana_comedor', 2),
-(6, 'ventana_patio', 2);
-
 -- --------------------------------------------------------
 
 --
@@ -359,18 +306,6 @@ CREATE TABLE IF NOT EXISTS `sensores_de_presencia` (
 --       `sistema` -> `id`
 --
 
---
--- Volcado de datos para la tabla `sensores_de_presencia`
---
-
-INSERT INTO `sensores_de_presencia` (`id`, `descripcion`, `sistema_id`) VALUES
-(1, 'dormitorio_1', 1),
-(2, 'comedor', 1),
-(3, 'dormitorio_1', 2),
-(4, 'dormitorio_2', 2),
-(5, 'pasillo', 2),
-(6, 'living', 2);
-
 -- --------------------------------------------------------
 
 --
@@ -384,7 +319,7 @@ CREATE TABLE IF NOT EXISTS `sistema` (
   `estado` tinyint(4) NOT NULL,
   `cliente_id` int(30) NOT NULL,
   `localidad_id` int(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- RELACIONES PARA LA TABLA `sistema`:
@@ -399,16 +334,8 @@ CREATE TABLE IF NOT EXISTS `sistema` (
 --
 
 INSERT INTO `sistema` (`id`, `direccion`, `codigo_desbloqueo`, `estado`, `cliente_id`, `localidad_id`) VALUES
-(1, 'Jujuy 924', 4568, 0, 2, 1),
-(2, 'Salta 1900', 8879, 1, 4, 2),
-(3, 'arenas 4589', 21, 1, 5, 3),
-(4, 'catamarca 132', 0, 1, 6, 3),
-(5, 'mendoza 45', 6, 1, 7, 2),
-(6, 'pujol 54', 4438, 1, 8, 5),
-(7, 'jujuy 56', 4731, 1, 9, 1),
-(8, 'asdasdasd', 4063, 1, 10, 1),
-(9, 'sadasdas', 7846, 1, 12, 1),
-(10, 'asdasd', 8178, 1, 13, 1);
+(11, 'Ramon Falcon', 4809, 0, 16, 2),
+(12, 'sadasdas', 9394, 0, 17, 2);
 
 -- --------------------------------------------------------
 
@@ -427,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `registro` date NOT NULL,
   `estado` tinyint(1) NOT NULL COMMENT '0 de baja - 1 activo',
   `perfil_id` int(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- RELACIONES PARA LA TABLA `usuario`:
@@ -440,18 +367,10 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nick`, `clave`, `dni`, `nombre`, `apellido`, `mail`, `registro`, `estado`, `perfil_id`) VALUES
-(1, 'pepe1234', '81dc9bdb52d04dc20036dbd8313ed055', 23434565, 'Pedro', 'Ramirez', 'pedror@hotmail.com', '2015-04-01', 1, 3),
-(2, 'caro5421', '07dbd9a180c7cc69cada7b982c5ae82c', 33548668, 'Carolina', 'Gonzalez', 'caro1985@gmail.com', '2015-02-14', 1, 1),
-(3, 'guille5788', '967edfdcdfbcc3b2d253fac24326e5b5', 33569854, 'Guillermo', 'Moreyra', 'elguille@gmail.com', '2015-03-15', 1, 2),
-(4, 'eva5641', '48fbab00052197bc8bd943498b89dd71', 30566875, 'Evangelina', 'Otamendi', 'eva.55@gmail.com', '2015-02-22', 1, 1),
-(5, 'lola7878', '21c3134ee5edcb618c4f9aae358d73a7', 30569874, 'lola', 'gonzalez', 'lola@hotmail.com', '2015-07-01', 1, 1),
-(6, 'paco8888', 'cf79ae6addba60ad018347359bd144d2', 20546978, 'paco', 'perez', 'pacol@yahoo.com.ar', '2015-07-01', 1, 1),
-(7, 'hugo7474', '6a30e32e56fce5cf381895dfe6ca7b6f', 10548698, 'hugo', 'lugano', 'hugo@gmail.com', '2015-07-01', 1, 1),
-(8, 'gonzalo2222', '934b535800b1cba8f96a5d72f72f1611', 23654558, 'gonzalo', 'farias', 'gonzard@yahoo.com', '2015-07-01', 1, 1),
-(9, 'pepe5544', '97785e0500ad16c18574c64189ccf4b4', 21546879, 'pepa', 'perez', 'pepa@gmail.com', '2015-07-01', 1, 1),
-(10, 'asdasdasd', '202cb962ac59075b964b07152d234b70', 232, 'asdasd', 'asdsad', 'asd@asd.com', '2015-07-07', 1, 1),
-(12, 'asdasd', '202cb962ac59075b964b07152d234b70', 1231231, 'asd', 'asdasd', '123123@asdasd.com', '2015-07-07', 1, 1),
-(13, 'asdasdassa', '4297f44b13955235245b2497399d7a93', 43545, 'asdasd', 'asdasd', 'sadas@sdsd.com', '2015-07-07', 1, 1);
+(14, 'pepe1234', '81dc9bdb52d04dc20036dbd8313ed055', 5, 'pepe1234', 'velazco', 'nachitop.-@hotmail.com', '2015-07-08', 1, 3),
+(15, 'carla456', '250cf8b51c773f3f8dc8b4be867a9a02', 28, 'Carla', 'serkin', 'ignaciovelazco12@gmail.com', '2015-07-08', 1, 2),
+(16, 'agus', '202cb962ac59075b964b07152d234b70', 3, 'jabon', 'Guglielmo', 'ronima_2005@hotmail.com', '2015-07-08', 1, 1),
+(17, 'asdqwe', '202cb962ac59075b964b07152d234b70', 12, 'asd', 'Guglielmo', 'sweet.cali@hotmail.com', '2015-07-08', 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -555,12 +474,12 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `camaras`
 --
 ALTER TABLE `camaras`
-MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `detalle`
 --
 ALTER TABLE `detalle`
-MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT de la tabla `disparo`
 --
@@ -575,7 +494,7 @@ MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `localidad`
 --
@@ -595,12 +514,12 @@ MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT de la tabla `sistema`
 --
 ALTER TABLE `sistema`
-MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- Restricciones para tablas volcadas
 --

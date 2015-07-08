@@ -208,7 +208,7 @@
                                         <tr>
                                             <th>Usuario</th>
                                             <th>Fecha de Inicio</th>
-                                            <th>Fecha de finalizaci&oacute;n</th>
+                                            <th>Factor</th>
                                             <th>Tipo de disparo</th>
                                         </tr>
                                     </thead>
@@ -221,7 +221,11 @@
                                                 echo "<tr>";
                                                 echo "<td>".$registro['nick']."</td>";
                                                 echo "<td>".$registro['fecha_inicio']."</td>";
-                                                echo "<td>".$registro['fecha_finalizacion']."</td>";
+                                                if($registro['factor'] == '1'){
+                                                    echo "<td>Real</td>";
+                                                }else{
+                                                    echo "<td> Prueba </td>";
+                                                }
                                                 echo "<td>".$registro['nombre']."</td>";
                                             }
                                             desconectarSQL($link);

@@ -13,6 +13,7 @@
 			if($password == $linea["clave"]){
 				$login=1;
 				$perfilUsuario=$linea["perfil_id"];
+				$nick=$linea["nick"];
 				$id=$linea["id"];
 			}
 		}
@@ -20,6 +21,7 @@
 	if($login == 1){
 			session_start();
 			$_SESSION["log"]=1;
+			$_SESSION["nick"]=$nick;
 			$_SESSION["perfil"]=$perfilUsuario;
 			$_SESSION["id"]=$id;
 			if ($recordar=="1") setcookie('perfil', $perfilUsuario, time() + 365 * 24 * 60 * 60);

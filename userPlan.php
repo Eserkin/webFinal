@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<?php
+    session_start();
+    if(isset($_SESSION["log"])){
+        if($_SESSION["perfil"]=="1"){
+
+?>
+<!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8" />
@@ -151,9 +157,16 @@
                         <h1 class="page-header">
                             Planes de precios
                         </h1>
+                        <?php 
+                            if(isset($_GET["cambio"])){
+                                if($_GET["cambio"]==1){
+                                    echo "<h3 style='color:green;'> Se ha modificado el plan correctamente.</h3><br>";
+                                }
+                            }
+                         ?>
                     </div>
              </div>
-
+            
              <div class="row">
                      <!-- item -->
                 <div class="col-md-4 text-center">
@@ -175,7 +188,7 @@
                             <li class="list-group-item"><i class="fa fa-check"></i> Servicio técnico las 24hs</li>
                         </ul>
                         <div class="panel-footer">
-                            <a class="btn btn-lg btn-block btn-danger" href="#">COMPRAR</a>
+                            <a class="btn btn-lg btn-block btn-danger" href="cambiarPlan.php?plan=1">COMPRAR</a>
                         </div>
                     </div>
                 </div>
@@ -202,7 +215,7 @@
                             <li class="list-group-item"><i class="fa fa-check"></i> Servicio Técnico las 24 Hs</li>
                         </ul>
                         <div class="panel-footer">
-                            <a class="btn btn-lg btn-block btn-warning" href="#">COMPRAR</a>
+                            <a class="btn btn-lg btn-block btn-warning" href="cambiarPlan.php?plan=2">COMPRAR</a>
                         </div>
                     </div>
                 </div>
@@ -230,7 +243,7 @@
                             <li class="list-group-item"><i class="fa fa-check"></i> Servicio Técnico las 24 Hs</li>
                         </ul>
                         <div class="panel-footer">
-                            <a class="btn btn-lg btn-block btn-success" href="#">COMPRAR</a>
+                            <a class="btn btn-lg btn-block btn-success" href="cambiarPlan.php?plan=3">COMPRAR</a>
                         </div>
                     </div>
                 </div>
@@ -257,4 +270,13 @@
 
 
 </body>
-</htmlas
+</html>
+<?php
+     }else{
+            header("Location:index.php");
+        }
+    }else{
+        header("Location:index.php");
+    }
+
+ ?>

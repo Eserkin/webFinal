@@ -7,7 +7,7 @@
 	$estado=mysql_result($consulta, '0');
 	if($estado == '1'){
 		consultaDatos("UPDATE sistema SET estado='0' WHERE cliente_id=$id;");
-		//modificar alarma anterior y poner la fecha ede finalizacion
+		//modificar alarma anterior y poner la fecha ede finalizacion	
 	}else{
 		consultaDatos("UPDATE sistema SET estado='1' WHERE cliente_id=$id;");
 		//insertar alarma en la base de datos
