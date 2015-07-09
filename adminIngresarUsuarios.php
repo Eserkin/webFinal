@@ -213,12 +213,12 @@
                                                             </div>
                                                             <div class="radio">
                                                                 <label>
-                                                                    <input type="radio" name="rolUsuario" value="1" /> Administrador
+                                                                    <input type="radio" name="rolUsuario" value="3" /> Administrador
                                                                 </label>
                                                             </div>
                                                             <div class="radio">
                                                                 <label>
-                                                                    <input type="radio" name="rolUsuario" value="3" /> Cliente
+                                                                    <input type="radio" name="rolUsuario" value="1" /> Cliente
                                                                 </label>
                                                             </div>
                                                         </div><!-- Fin de radios-->
@@ -461,7 +461,7 @@
             // Enable telefono/direccion/localidad validators if user want to ship to other address
             $('input[name="rolUsuario"]').on('change', function() {
                 var formValidation = $('#ingresarUsuario').data('formValidation'),
-                    shipaccesoCliente     = ($(this).val() == '3');
+                    shipaccesoCliente     = ($(this).val() == '1');
 
                 if(shipaccesoCliente){
                     $('#accesoCliente').find('.form-control').removeAttr('disabled');
