@@ -207,6 +207,8 @@
                                     <thead>
                                         <tr>
                                             <th>Usuario</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
                                             <th>Factura</th>
                                             <th>Fecha de Factura</th>
                                             <th>Estado factura</th>
@@ -220,6 +222,8 @@
                                             while ($registro = mysql_fetch_array($consulta)){
                                                 echo "<tr>";
                                                 echo "<td>".$registro['nick']."</td>";
+                                                echo "<td>".$registro['nombre']."</td>";
+                                                echo "<td>".$registro['apellido']."</td>";
                                                 echo "<td>".$registro['nro_factura']."</td>";
                                                 echo "<td>".$registro['fecha']."</td>";
                                                 if($registro['estado'] == '1'){

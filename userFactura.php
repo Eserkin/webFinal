@@ -164,55 +164,52 @@
                         </h1>
                     </div>
                 </div> 
+                <?php 
+                include_once("funcionSQL.php");
+                $id=$_SESSION["id"];
+                abriendoConexionSQL();
+                $consulta=consultaDatos("SELECT * from factura WHERE cliente_id='$id';");
+                while ($linea=mysql_fetch_array($consulta)) {
+                    $fecha=$linea["fecha"];
+                    if($linea["estado"]=="1"){
+                        $estado="Pagado";
+                    }else{
+                        $estado="Adeuda";
+                    }
+                    echo "<div class='row'>
+                            <div class='col-md-12'>  
+                                <div class='panel panel-default'>
+                                    <div class='panel-heading'>
+                                        ".date("F Y",strtotime($fecha))." - Estado: ".$estado;
 
-			    <div class="row">
-                    <div class="col-md-12">  
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Abril 2015
-                                <i class="fa fa-eye pull-right"></i> 
-                                <i class="fa fa-download pull-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End ROW-->
+                   if($linea["estado"]=="0"){
+                    $nroFactura=$linea["nro_factura"];
+                    echo "<a  style='margin-left:10%;' href='pagarFactura.php?nroFactura=$nroFactura'>Pagar</a>";
+                   }
 
-                <div class="row">
-                    <div class="col-md-12">  
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Marzo 2015
-                                <i class="fa fa-eye pull-right"></i> 
-                                <i class="fa fa-download pull-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End ROW-->
 
-                <div class="row">
-                    <div class="col-md-12">  
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Febrero 2015
-                                <i class="fa fa-eye pull-right"></i> 
-                                <i class="fa fa-download pull-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End ROW-->
+                    echo "
+                                        <i class='fa fa-eye pull-right'></i> 
+                                        <i class='fa fa-download pull-right'></i>
+                                    </div>
+                                ";
+                    if(isset($_GET["pagado"])){
+                        if($_GET["nro_factura"] == $linea["nro_factura"]){
+                            if($_GET["pagado"]== '1'){
+                                echo "<h3 style='color:green;'>Se ha pagado correctamente.</h3> <br>";
+                            }else{
+                                echo "<h3 style='color:red;'>No se ha podido pagar correctamente.</h3> <br>";
 
-                <div class="row">
-                    <div class="col-md-12">  
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Enero 2015
-                                <i class="fa fa-eye pull-right"></i> 
-                                <i class="fa fa-download pull-right"></i>
+                            }
+                        }
+                    }
+                    echo "
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div><!-- End ROW-->
-                    
+                        </div>";    
+                }
+                 ?>
+			    <!-- End ROW-->
                   
              <!-- /. PAGE INNER  -->
             </div>
