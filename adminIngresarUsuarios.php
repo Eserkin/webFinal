@@ -213,28 +213,12 @@
                                                             </div>
                                                             <div class="radio">
                                                                 <label>
-<<<<<<< HEAD
                                                                     <input type="radio" name="rolUsuario" value="3" /> Administrador
-=======
-<<<<<<< HEAD
-                                                                    <input type="radio" name="rolUsuario" value="3" /> Administrador
-=======
-                                                                    <input type="radio" name="rolUsuario" value="1" /> Administrador
->>>>>>> origin/master
->>>>>>> origin/master
                                                                 </label>
                                                             </div>
                                                             <div class="radio">
                                                                 <label>
-<<<<<<< HEAD
                                                                     <input type="radio" name="rolUsuario" value="1" /> Cliente
-=======
-<<<<<<< HEAD
-                                                                    <input type="radio" name="rolUsuario" value="1" /> Cliente
-=======
-                                                                    <input type="radio" name="rolUsuario" value="3" /> Cliente
->>>>>>> origin/master
->>>>>>> origin/master
                                                                 </label>
                                                             </div>
                                                         </div><!-- Fin de radios-->

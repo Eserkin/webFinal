@@ -169,20 +169,14 @@
                 $id=$_SESSION["id"];
                 abriendoConexionSQL();
                 $consulta=consultaDatos("SELECT * from factura WHERE cliente_id='$id';");
-<<<<<<< HEAD
                 $estadoDedeuda=0;
-=======
->>>>>>> origin/master
                 while ($linea=mysql_fetch_array($consulta)) {
                     $fecha=$linea["fecha"];
                     if($linea["estado"]=="1"){
                         $estado="Pagado";
                     }else{
                         $estado="Adeuda";
-<<<<<<< HEAD
                         $estadoDedeuda=1;
-=======
->>>>>>> origin/master
                     }
                     echo "<div class='row'>
                             <div class='col-md-12'>  
@@ -216,14 +210,11 @@
                             </div>
                         </div>";    
                 }
-<<<<<<< HEAD
                 if($estadoDedeuda==1){
                     consultaDatos("UPDATE usuario SET estado='0' WHERE id=$id;");
                 }else{
                     consultaDatos("UPDATE usuario SET estado='1' WHERE id=$id;");
                 }
-=======
->>>>>>> origin/master
                  ?>
 			    <!-- End ROW-->
                   
