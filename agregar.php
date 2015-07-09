@@ -52,6 +52,10 @@ session_start();
                                         case '2':
                                                 $consulta=consultaDatos("SELECT SUM(precio) FROM producto WHERE id='2' OR id='5';");
                                                 $monto=mysql_result($consulta, '0');
+                                                $consulta=consultaDatos("SELECT id FROM sistema WHERE cliente_id='$id';");
+                                                $sistemaId=mysql_result($consulta, '0');
+                                                consultaDatos("INSERT INTO camaras (nro_camara,url,sistema_id) VALUES('1','www.camara1.com','$sistemaId');");
+                                                consultaDatos("INSERT INTO camaras (nro_camara,url,sistema_id) VALUES('2','www.camara2.com','$sistemaId');");
                                                 if(consultaDatos("INSERT INTO factura(fecha,monto,nro_factura,estado,cliente_id) VALUES ('$fecha','$monto','1','0','$id');")){
                                                     $consulta=consultaDatos("SELECT * FROM factura WHERE cliente_id='$id';");
                                                     $line=mysql_fetch_assoc($consulta);
@@ -68,6 +72,11 @@ session_start();
                                         case '3':
                                                 $consulta=consultaDatos("SELECT SUM(precio) FROM producto WHERE id='3' OR id='6';");
                                                 $monto=mysql_result($consulta, '0');
+                                                $consulta=consultaDatos("SELECT id FROM sistema WHERE cliente_id='$id';");
+                                                $sistemaId=mysql_result($consulta, '0');
+                                                for ($i=1; $i<7 ; $i++) { 
+                                                    consultaDatos("INSERT INTO camaras (nro_camara,url,sistema_id) VALUES('$i','www.camara$i.com','$sistemaId');");
+                                                }
                                                 if(consultaDatos("INSERT INTO factura(fecha,monto,nro_factura,estado,cliente_id) VALUES ('$fecha','$monto','1','0','$id');")){
                                                     $consulta=consultaDatos("SELECT * FROM factura WHERE cliente_id='$id';");
                                                     $line=mysql_fetch_assoc($consulta);
