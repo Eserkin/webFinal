@@ -213,12 +213,12 @@
                                                             </div>
                                                             <div class="radio">
                                                                 <label>
-                                                                    <input type="radio" name="rolUsuario" value="3" /> Administrador
+                                                                    <input type="radio" name="rolUsuario" value="1" /> Administrador
                                                                 </label>
                                                             </div>
                                                             <div class="radio">
                                                                 <label>
-                                                                    <input type="radio" name="rolUsuario" value="1" /> Cliente
+                                                                    <input type="radio" name="rolUsuario" value="3" /> Cliente
                                                                 </label>
                                                             </div>
                                                         </div><!-- Fin de radios-->
