@@ -267,7 +267,6 @@
                                             <th>Apellido</th>
                                             <th>Dni</th>
                                             <th>E-mail</th>
-                                            <th>Turno</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -282,7 +281,6 @@
                                                 echo "<td>".$registro['apellido']."</td>";
                                                 echo "<td>".$registro['dni']."</td>";
                                                 echo "<td>".$registro['mail']."</td>";
-                                                echo "<td>".$registro['turno']."</td>";
                                             }
                                             desconectarSQL($link);
 

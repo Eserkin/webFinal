@@ -206,8 +206,10 @@
                                 <table class="table table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
+                                            <th>Nro de Cliente</th>
                                             <th>Usuario</th>
                                             <th>Fecha de Inicio</th>
+                                            <th>Fecha de Finalizaci&oacute;n</th>
                                             <th>Factor</th>
                                             <th>Tipo de disparo</th>
                                         </tr>
@@ -219,8 +221,10 @@
                                             $consulta=consultaDatos("SELECT * FROM usuario JOIN sistema ON usuario.id=sistema.cliente_id JOIN disparo ON disparo.sistema_id=sistema.id JOIN evento ON disparo.evento_id=evento.id;");
                                             while ($registro = mysql_fetch_array($consulta)){
                                                 echo "<tr>";
+                                                echo "<td>".$registro['id']."</td>";
                                                 echo "<td>".$registro['nick']."</td>";
                                                 echo "<td>".$registro['fecha_inicio']."</td>";
+                                                echo "<td>".$registro['fecha_finalizacion']."</td>";
                                                 if($registro['factor'] == '1'){
                                                     echo "<td>Real</td>";
                                                 }else{
