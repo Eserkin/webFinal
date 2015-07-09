@@ -163,7 +163,9 @@ if(isset($_SESSION["log"])){
                         </h1>
                     </div>
                 </div> 
-
+                <?php 
+                    if(isset($_GET["estado"])) echo "<h2 style='color:red;'> Por Favor Pague sus deudas.</h2><br>";
+                 ?>
 			    <div class="row">
                     <div class="col-md-6">
                        

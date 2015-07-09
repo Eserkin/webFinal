@@ -2,7 +2,12 @@
     session_start();
     if(isset($_SESSION["log"])){
         if($_SESSION["perfil"]=="1"){
-
+            include_once("funcionSQL.php");
+            abriendoConexionSQL();
+            $id=$_SESSION["id"];
+            $consulta=consultaDatos("SELECT estado FROM usuario WHERE id='$id';");
+            $estado=mysql_result($consulta, '0');
+            if($estado=='1'){
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -232,8 +237,13 @@
 </body>
 </html>
 <?php
+        }else{
+            header("Location:userIndex.php?estado=0");
+            exit();
+        }
      }else{
             header("Location:index.php");
+            exit();
         }
     }else{
         header("Location:index.php");

@@ -219,7 +219,7 @@
                                         <?php 
                                             include_once("funcionSQL.php");
                                             $link=abriendoConexionSQL();
-                                            $consulta=consultaDatos("SELECT * FROM cliente JOIN usuario ON cliente.id=usuario.id JOIN sistema ON cliente.id=sistema.cliente_id;");
+                                            $consulta=consultaDatos("SELECT * FROM cliente JOIN sistema ON cliente.id=sistema.cliente_id JOIN usuario ON cliente.id=usuario.id;");
                                             while ($registro = mysql_fetch_array($consulta)){
                                                 echo "<tr>";
                                                 echo "<td>".$registro['id']."</td>";

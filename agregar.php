@@ -11,8 +11,10 @@ session_start();
 			$localidad=$_POST["localidad"];
 			$telefono=$_POST["telefono"];
 			$mail=$_POST["email"];
+            $latitud=$_POST["latitud"];
+            $longitud=$_POST["longitud"];
 			$fecha=date("Y-m-d");
-			$perfil=$_POST["perfil"];
+			$perfil=$_POST["rolUsuario"];
 			$plan=$_POST["plan"];
 			include_once("funcionSQL.php");
 			$link=abriendoConexionSQL();
@@ -25,7 +27,7 @@ session_start();
     					$id=$line['id'];
     					if(consultaDatos("INSERT INTO cliente (id,telefono,plan) VALUES ('$id','$telefono','$plan');")){
     						$codigoDeDesbloqueo=rand(1000, 9999);//se autoasigna num aleatorio para el codigo del sistema
-                            if(consultaDatos("INSERT INTO sistema (direccion,codigo_desbloqueo,estado,cliente_id,localidad_id) VALUES ('$direccion','$codigoDeDesbloqueo','0','$id','$localidad');")){
+                            if(consultaDatos("INSERT INTO sistema (direccion,latitud,longitud,codigo_desbloqueo,estado,cliente_id,localidad_id) VALUES ('$direccion','$latitud','$longitud','$codigoDeDesbloqueo','0','$id','$localidad');")){
   			   					include_once ("primerDia.php");
                                 $fecha=primerDia();                                    
                                     switch ($plan) {
