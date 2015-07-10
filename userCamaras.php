@@ -26,6 +26,7 @@
     <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
     <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
     <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+    <link href="lightbox/css/lightbox.css" rel="stylesheet" />
 
      <!-- Tile icon for Win8 (144x144 + tile color) -->
         <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
@@ -52,12 +53,12 @@
         <!--
         <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
         -->
-        
+
     <!-- Hojas de Estilo -->
     <link href="css/admin/bootstrap.css" rel="stylesheet" />
     <link href="css/admin/font-awesome.css" rel="stylesheet" />
     <link href="css/admin/estilos.css" rel="stylesheet" />
-    
+
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
@@ -103,7 +104,7 @@
                     <!-- /.dropdown-messages -->
                 </li>
                 <!-- /.dropdown -->
-               
+
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -133,7 +134,7 @@
                     <li>
                         <a href="userIndex.php"><i class="fa fa-dashboard"></i> Inicio</a>
                     </li>
-                    
+
                     <li>
                         <a class="active-menu" href="userCamaras.php"><i class="fa fa-video-camera"></i> Cámaras IP</a>
                     </li>
@@ -143,7 +144,7 @@
                     <li>
                         <a href="userPlan.php"><i class="fa fa-arrow-circle-o-down"></i> Planes</a>
                     </li>
-                    
+
                     <li>
                         <a href="userContacto.php"><i class="fa fa-envelope-o"></i> Contacto</a>
                     </li>
@@ -163,28 +164,67 @@
                             Cámaras IP- <small>en vivo</small>
                         </h1>
                     </div>
-                </div> 
+                </div>
 
 			    <div class="row">
                     <!--  Cámara Ip1-->
-                    <div class="col-md-6">  
+                    <div class="col-md-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Cámara IP 1 <i class="fa fa-arrows-alt pull-right"></i> 
+                              Cámara IP 1
+                              <?php
+                                $consultaPermiso=consultaDatos("SELECT permitir_monitoreo FROM camaras JOIN sistema ON camaras.sistema_id=sistema.id WHERE sistema.cliente_id='$id';");
+                                $permisos=mysql_num_rows($consultaPermiso);
+                                if($permisos > 0) {
+                                  $permitirMonitoreo=mysql_result($consultaPermiso, '0');
+                                }
+                              ?>
+                              <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php?numCamara=1'">
+                                <span class="glyphicon glyphicon-facetime-video"></span>
+                                <?php if(!isset($permitirMonitoreo)) { echo " Deshabilitado"; } elseif($permitirMonitoreo=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
+                              </button>
                             </div>
                             <div class="panel-body">
+                              <?php
+                                $consulta=consultaDatos("SELECT url FROM camaras JOIN sistema ON camaras.sistema_id=sistema.id WHERE sistema.cliente_id='$id';");
+                                $urls=mysql_num_rows($consulta);
+                                if($urls > 0) {
+                                  $urlUno=mysql_result($consulta,'0');
+                                  echo "<a href=$urlUno data-lightbox='Mi ipCam 1' data-title='Mi ipCam 1'>Ver</a>";
+                                }
+                                else echo "<p style='color:red;'>No disponible</p>";
+                              ?>
+
                             </div>
                         </div>
                     </div>
                     <!-- End Cámara Ip1-->
-                    
+
                     <!--  Cámara Ip2-->
-                    <div class="col-md-6">  
+                    <div class="col-md-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Cámara IP 2 <i class="fa fa-arrows-alt pull-right"></i>
+                                Cámara IP 2
+                                <?php
+                                  $consultaPermiso=consultaDatos("SELECT permitir_monitoreo FROM camaras JOIN sistema ON camaras.sistema_id=sistema.id WHERE sistema.cliente_id='$id';");
+                                  $permisos=mysql_num_rows($consultaPermiso);
+                                  if($permisos > 0) {
+                                    $permitirMonitoreo=mysql_result($consultaPermiso, '1');
+                                  }
+                                ?>
+                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php'">
+                                  <span class="glyphicon glyphicon-facetime-video"></span>
+                                  <?php if(!isset($permitirMonitoreo)) { echo " Deshabilitado"; } elseif($permitirMonitoreo=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
+                                </button>
                             </div>
                             <div class="panel-body">
+                              <?php
+                                if($urls > 0) {
+                                  $urlDos=mysql_result($consulta,'1');
+                                  echo "<a href=$urlDos data-lightbox='Mi ipCam 1' data-title='Mi ipCam 1'>Ver</a>";
+                                }
+                                else echo "<p style='color:red;'>No disponible</p>";
+                              ?>
                             </div>
                         </div>
                     </div>
@@ -193,30 +233,127 @@
 
                  <div class="row">
                     <!--  Cámara Ip3-->
-                    <div class="col-md-6">  
+                    <div class="col-md-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Cámara IP 3 <i class="fa fa-arrows-alt pull-right"></i>
+                                Cámara IP 3
+                                <?php
+                                  $consultaPermiso=consultaDatos("SELECT permitir_monitoreo FROM camaras JOIN sistema ON camaras.sistema_id=sistema.id WHERE sistema.cliente_id='$id';");
+                                  $permisos=mysql_num_rows($consultaPermiso);
+                                  if($permisos > 2) {
+                                    $permitirMonitoreo=mysql_result($consultaPermiso, '2');
+                                  }
+                                ?>
+                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php'">
+                                  <span class="glyphicon glyphicon-facetime-video"></span>
+                                  <?php if(!isset($permitirMonitoreo)) { echo " Deshabilitado"; } elseif($permitirMonitoreo=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
+                                </button>
                             </div>
                             <div class="panel-body">
+                              <?php
+                                if($urls > 2) {
+                                  $urlTres=mysql_result($consulta,'2');
+                                  echo "<a href=$urlTres data-lightbox='Mi ipCam 1' data-title='Mi ipCam 1'>Ver</a>";
+                                }
+                                else echo "<p style='color:red;'>No disponible</p>";
+                              ?>
                             </div>
                         </div>
                     </div>
                     <!-- End Cámara Ip3-->
-                    
+
                     <!--  Cámara Ip4-->
-                    <div class="col-md-6">  
+                    <div class="col-md-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Cámara IP 4 <i class="fa fa-arrows-alt pull-right"></i>
+                                Cámara IP 4
+                                <?php
+                                  $consultaPermiso=consultaDatos("SELECT permitir_monitoreo FROM camaras JOIN sistema ON camaras.sistema_id=sistema.id WHERE sistema.cliente_id='$id';");
+                                  $permisos=mysql_num_rows($consultaPermiso);
+                                  if($permisos > 2) {
+                                    $permitirMonitoreo=mysql_result($consultaPermiso, '3');
+                                  }
+                                ?>
+                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php'">
+                                  <span class="glyphicon glyphicon-facetime-video"></span>
+                                  <?php if(!isset($permitirMonitoreo)) { echo " Deshabilitado"; } elseif($permitirMonitoreo=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
+                                </button>
                             </div>
                             <div class="panel-body">
+                              <?php
+                                if($urls > 2) {
+                                  $urlCuatro=mysql_result($consulta,'3');
+                                  echo "<a href=$urlTres data-lightbox='Mi ipCam 1' data-title='Mi ipCam 1'>Ver</a>";
+                                }
+                                else echo "<p style='color:red;'>No disponible</p>";
+                              ?>
                             </div>
                         </div>
                     </div>
                     <!-- End Cámara Ip4-->
+
+                    <!--  Cámara Ip5-->
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Cámara IP 5
+                                <?php
+                                  $consultaPermiso=consultaDatos("SELECT permitir_monitoreo FROM camaras JOIN sistema ON camaras.sistema_id=sistema.id WHERE sistema.cliente_id='$id';");
+                                  $permisos=mysql_num_rows($consultaPermiso);
+                                  if($permisos > 2) {
+                                    $permitirMonitoreo=mysql_result($consultaPermiso, '4');
+                                  }
+                                ?>
+                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php'">
+                                  <span class="glyphicon glyphicon-facetime-video"></span>
+                                  <?php if(!isset($permitirMonitoreo)) { echo " Deshabilitado"; } elseif($permitirMonitoreo=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
+                                </button>
+                            </div>
+                            <div class="panel-body">
+                              <?php
+                                if($urls > 2) {
+                                  $urlCinco=mysql_result($consulta,'4');
+                                  echo "<a href=$urlCinco data-lightbox='Mi ipCam 1' data-title='Mi ipCam 1'>Ver</a>";
+                                }
+                                else echo "<p style='color:red;'>No disponible</p>";
+                              ?>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Cámara Ip5-->
+
+                    <!--  Cámara Ip6-->
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Cámara IP 6
+                                <?php
+                                  $consultaPermiso=consultaDatos("SELECT permitir_monitoreo FROM camaras JOIN sistema ON camaras.sistema_id=sistema.id WHERE sistema.cliente_id='$id';");
+                                  $permisos=mysql_num_rows($consultaPermiso);
+                                  if($permisos > 2) {
+                                    $permitirMonitoreo=mysql_result($consultaPermiso, '5');
+                                  }
+                                ?>
+                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php'">
+                                  <span class="glyphicon glyphicon-facetime-video"></span>
+                                  <?php if(!isset($permitirMonitoreo)) { echo " Deshabilitado"; } elseif($permitirMonitoreo=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
+                                </button>
+                            </div>
+                            <div class="panel-body">
+                              <?php
+                                if($urls > 2) {
+                                  $urlSeis=mysql_result($consulta,'5');
+                                  echo "<a href=$urlSeis data-lightbox='Mi ipCam 1' data-title='Mi ipCam 1'>Ver</a>";
+                                }
+                                else echo "<p style='color:red;'>No disponible</p>";
+                              ?>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Cámara Ip6-->
+
                  </div><!-- End ROW->
-              
+
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
@@ -231,9 +368,9 @@
     <script src="js/admin/jquery.metisMenu.js"></script>
       <!-- Custom Js -->
     <script src="js/admin/custom.js"></script>
+      <!-- lightbox Js -->
+    <script src="js/lightbox.min.js"></script>
 
-    
-   
 </body>
 </html>
 <?php
