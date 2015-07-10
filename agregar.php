@@ -29,7 +29,7 @@ session_start();
     						$codigoDeDesbloqueo=rand(1000, 9999);//se autoasigna num aleatorio para el codigo del sistema
                             if(consultaDatos("INSERT INTO sistema (direccion,latitud,longitud,codigo_desbloqueo,estado,cliente_id,localidad_id) VALUES ('$direccion','$latitud','$longitud','$codigoDeDesbloqueo','0','$id','$localidad');")){
   			   					include_once ("primerDia.php");
-                                $fecha=primerDia();                                    
+                                $fecha=primerDia();
                                     switch ($plan) {
                                         case '1':
                                                 $consulta=consultaDatos("SELECT SUM(precio) FROM producto WHERE id='1' OR id='4';");
@@ -47,15 +47,15 @@ session_start();
                                                     }
                                                 }
                                                //saque tabla pago, modificar detalle para ordenar por plan en ves de productos, van a haber muchos registros al pedo ya que nunca se filtra o es necesario, poner monto en la factura dependiendo del tipo de plan, hacer tabla plan con ltodos los planes y su monto y linkearla con la tabla factura
-                                            
+
                                             break;
                                         case '2':
                                                 $consulta=consultaDatos("SELECT SUM(precio) FROM producto WHERE id='2' OR id='5';");
                                                 $monto=mysql_result($consulta, '0');
                                                 $consulta=consultaDatos("SELECT id FROM sistema WHERE cliente_id='$id';");
                                                 $sistemaId=mysql_result($consulta, '0');
-                                                consultaDatos("INSERT INTO camaras (nro_camara,url,sistema_id) VALUES('1','www.camara1.com','$sistemaId');");
-                                                consultaDatos("INSERT INTO camaras (nro_camara,url,sistema_id) VALUES('2','www.camara2.com','$sistemaId');");
+                                                consultaDatos("INSERT INTO camaras (descripcion,permitir_monitoreo,url,sistema_id) VALUES(' ','1','http://64.251.85.30/mjpg/video.mjpg','$sistemaId');");
+                                                consultaDatos("INSERT INTO camaras (descripcion,permitir_monitoreo,url,sistema_id) VALUES(' ','1','http://64.251.85.30/mjpg/video.mjpg','$sistemaId');");
                                                 if(consultaDatos("INSERT INTO factura(fecha,monto,nro_factura,estado,cliente_id) VALUES ('$fecha','$monto','1','0','$id');")){
                                                     $consulta=consultaDatos("SELECT * FROM factura WHERE cliente_id='$id';");
                                                     $line=mysql_fetch_assoc($consulta);
@@ -74,8 +74,8 @@ session_start();
                                                 $monto=mysql_result($consulta, '0');
                                                 $consulta=consultaDatos("SELECT id FROM sistema WHERE cliente_id='$id';");
                                                 $sistemaId=mysql_result($consulta, '0');
-                                                for ($i=1; $i<7 ; $i++) { 
-                                                    consultaDatos("INSERT INTO camaras (nro_camara,url,sistema_id) VALUES('$i','www.camara$i.com','$sistemaId');");
+                                                for ($i=1; $i<7 ; $i++) {
+                                                    consultaDatos("INSERT INTO camaras (descripcion,permitir_monitoreo,url,sistema_id) VALUES(' ','1','http://64.251.85.30/mjpg/video.mjpg','$sistemaId');");
                                                 }
                                                 if(consultaDatos("INSERT INTO factura(fecha,monto,nro_factura,estado,cliente_id) VALUES ('$fecha','$monto','1','0','$id');")){
                                                     $consulta=consultaDatos("SELECT * FROM factura WHERE cliente_id='$id';");
