@@ -51,25 +51,29 @@
         <!-- Hojas de Estilo -->
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/simplegrid.css" />
 
         <!--Google Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
 
 
         <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        
     </head>
 
-    <body>
+    <body onload="load()">
 
         <header>
             <a href="index.php" title="Sistema para controlar alarmas online"></a>
         </header>
 
-        <div id="map-canvas">
+        <div id="map">
 
         </div>
         <!--  Fin de googlemaps -->
+
+
+
 
         <div id="cerrar-sesion">
             <a href="olvidar.php"><span>X</span> Cerrar Sesión </a>
@@ -77,14 +81,15 @@
 
 
 
-        <script src="js/vendor/jquery-2.1.0.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+
+        <script src="js/vendor/jquery-2.1.0.min.js"></script>    
         <script src="js/helper.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/mapa.js"></script>
 
-
-
+               
     </body>
+
 </html>
 <?php
      }else{
