@@ -461,7 +461,7 @@
             // Enable telefono/direccion/localidad validators if user want to ship to other address
             $('input[name="rolUsuario"]').on('change', function() {
                 var formValidation = $('#ingresarUsuario').data('formValidation'),
-                    shipaccesoCliente     = ($(this).val() == '3');
+                    shipaccesoCliente     = ($(this).val() == '1');
 
                 if(shipaccesoCliente){
                     $('#accesoCliente').find('.form-control').removeAttr('disabled');
