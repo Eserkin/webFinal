@@ -398,7 +398,7 @@ header a{
    ========================================================================== */
 
 
-#map-canvas { 
+#map-canvas, #map { 
   height: 100%;
   width: 100%;
   background-color: #CCC;
