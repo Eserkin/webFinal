@@ -208,13 +208,13 @@
                                 <?php
                                   $consultaPermiso=consultaDatos("SELECT permitir_monitoreo FROM camaras JOIN sistema ON camaras.sistema_id=sistema.id WHERE sistema.cliente_id='$id';");
                                   $permisos=mysql_num_rows($consultaPermiso);
-                                  if($permisos > 0) {
-                                    $permitirMonitoreo=mysql_result($consultaPermiso, '1');
+                                  if($permisos == 2 OR $permisos == 6) {
+                                    $permitirMonitoreoDos=mysql_result($consultaPermiso, '1');
                                   }
                                 ?>
-                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php'">
+                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php?numCamara=2'">
                                   <span class="glyphicon glyphicon-facetime-video"></span>
-                                  <?php if(!isset($permitirMonitoreo)) { echo " Deshabilitado"; } elseif($permitirMonitoreo=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
+                                  <?php if(!isset($permitirMonitoreoDos)) { echo " Deshabilitado"; } elseif($permitirMonitoreoDos=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
                                 </button>
                             </div>
                             <div class="panel-body">
@@ -241,12 +241,12 @@
                                   $consultaPermiso=consultaDatos("SELECT permitir_monitoreo FROM camaras JOIN sistema ON camaras.sistema_id=sistema.id WHERE sistema.cliente_id='$id';");
                                   $permisos=mysql_num_rows($consultaPermiso);
                                   if($permisos > 2) {
-                                    $permitirMonitoreo=mysql_result($consultaPermiso, '2');
+                                    $permitirMonitoreoTres=mysql_result($consultaPermiso, '2');
                                   }
                                 ?>
-                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php'">
+                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php?numCamara=3'">
                                   <span class="glyphicon glyphicon-facetime-video"></span>
-                                  <?php if(!isset($permitirMonitoreo)) { echo " Deshabilitado"; } elseif($permitirMonitoreo=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
+                                  <?php if(!isset($permitirMonitoreoTres)) { echo " Deshabilitado"; } elseif($permitirMonitoreoTres=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
                                 </button>
                             </div>
                             <div class="panel-body">
@@ -271,12 +271,12 @@
                                   $consultaPermiso=consultaDatos("SELECT permitir_monitoreo FROM camaras JOIN sistema ON camaras.sistema_id=sistema.id WHERE sistema.cliente_id='$id';");
                                   $permisos=mysql_num_rows($consultaPermiso);
                                   if($permisos > 2) {
-                                    $permitirMonitoreo=mysql_result($consultaPermiso, '3');
+                                    $permitirMonitoreoCuatro=mysql_result($consultaPermiso, '3');
                                   }
                                 ?>
-                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php'">
+                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php?numCamara=4'">
                                   <span class="glyphicon glyphicon-facetime-video"></span>
-                                  <?php if(!isset($permitirMonitoreo)) { echo " Deshabilitado"; } elseif($permitirMonitoreo=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
+                                  <?php if(!isset($permitirMonitoreoCuatro)) { echo " Deshabilitado"; } elseif($permitirMonitoreoCuatro=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
                                 </button>
                             </div>
                             <div class="panel-body">
@@ -301,12 +301,12 @@
                                   $consultaPermiso=consultaDatos("SELECT permitir_monitoreo FROM camaras JOIN sistema ON camaras.sistema_id=sistema.id WHERE sistema.cliente_id='$id';");
                                   $permisos=mysql_num_rows($consultaPermiso);
                                   if($permisos > 2) {
-                                    $permitirMonitoreo=mysql_result($consultaPermiso, '4');
+                                    $permitirMonitoreoCinco=mysql_result($consultaPermiso, '4');
                                   }
                                 ?>
-                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php'">
+                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php?numCamara=5'">
                                   <span class="glyphicon glyphicon-facetime-video"></span>
-                                  <?php if(!isset($permitirMonitoreo)) { echo " Deshabilitado"; } elseif($permitirMonitoreo=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
+                                  <?php if(!isset($permitirMonitoreoCinco)) { echo " Deshabilitado"; } elseif($permitirMonitoreoCinco=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
                                 </button>
                             </div>
                             <div class="panel-body">
@@ -331,12 +331,12 @@
                                   $consultaPermiso=consultaDatos("SELECT permitir_monitoreo FROM camaras JOIN sistema ON camaras.sistema_id=sistema.id WHERE sistema.cliente_id='$id';");
                                   $permisos=mysql_num_rows($consultaPermiso);
                                   if($permisos > 2) {
-                                    $permitirMonitoreo=mysql_result($consultaPermiso, '5');
+                                    $permitirMonitoreoSeis=mysql_result($consultaPermiso, '5');
                                   }
                                 ?>
-                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php'">
+                                <button type="button" class="btn btn-default btn-xs pull-right" onclick="location.href='permisoCamaras.php?numCamara=6'">
                                   <span class="glyphicon glyphicon-facetime-video"></span>
-                                  <?php if(!isset($permitirMonitoreo)) { echo " Deshabilitado"; } elseif($permitirMonitoreo=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
+                                  <?php if(!isset($permitirMonitoreoSeis)) { echo " Deshabilitado"; } elseif($permitirMonitoreoSeis=='1') { echo " Bloquear monitoreo"; } else { echo " Permitir monitoreo"; } ?>
                                 </button>
                             </div>
                             <div class="panel-body">
