@@ -31,8 +31,12 @@ while ($registro = mysql_fetch_array($consulta)){
 	  echo 'direccion="' . parseToXML($registro['direccion']) . '" ';
 	  echo 'telefono="' . $registro['telefono'] . '" ';
 	  echo 'url="' . $registro['url'] . '" ';
-	  echo 'permitir_monitoreo="' . $registro['permitir_monitoreo'] . '" ';
 	  echo 'estado="' . $registro['estado'] . '" ';
+	  if($registro['permitir_monitoreo'] ==1){
+	  	echo 'permitir_monitoreo="puede ver cámaras" ';
+	  }else{
+	  	echo 'permitir_monitoreo="no se permite ver camaras" ';
+	  }
 	  echo 'latitud="' . $registro['latitud'] . '" ';
 	  echo 'longitud="' . $registro['longitud'] . '" ';
 	  echo '/>';

@@ -45,7 +45,9 @@
                     var direccion = markers[i].getAttribute("direccion");
                     var telefono = markers[i].getAttribute("telefono");
                     var link = markers[i].getAttribute("url");
+                    
                     var permitir = markers[i].getAttribute("permitir_monitoreo");
+                    
                     //Selecciono el estado en el que ese encuentra la alarma
                     var tipoAlarma= markers[i].getAttribute("estado");
 
@@ -77,6 +79,7 @@
 
                   bindInfoWindow(marker, map, infoWindow, html);
                 }
+
               });//Fin del bucle
                          
             }//Fin de funcion load

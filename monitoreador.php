@@ -79,8 +79,7 @@
             <a href="olvidar.php"><span>X</span> Cerrar Sesión </a>
         </div>
 
-
-
+            
 
 
         <script src="js/vendor/jquery-2.1.0.min.js"></script>    
