@@ -33,9 +33,9 @@ while ($registro = mysql_fetch_array($consulta)){
 	  echo 'url="' . $registro['url'] . '" ';
 	  echo 'estado="' . $registro['estado'] . '" ';
 	  if($registro['permitir_monitoreo'] ==1){
-	  	echo 'permitir_monitoreo="puede ver cámaras" ';
+	  	echo 'permitir_monitoreo="enabled" ';
 	  }else{
-	  	echo 'permitir_monitoreo="no se permite ver camaras" ';
+	  	echo 'permitir_monitoreo="disabled" ';
 	  }
 	  echo 'latitud="' . $registro['latitud'] . '" ';
 	  echo 'longitud="' . $registro['longitud'] . '" ';
