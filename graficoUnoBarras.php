@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	
 // agregamos la bibliotecas necesarias
 require_once ('jpgraph/src/jpgraph.php');
@@ -10,7 +10,7 @@ $conexion=mysqli_connect("localhost","root","","basesergio");
 if (mysqli_connect_errno()) {
   echo "Falló la conexión a MySQL: " . mysqli_connect_error();
 }
-$resultado = mysqli_query($conexion,"SELECT  localidad.nombre localidad, count(*) cantidad_de_usuarios FROM localidad join sistema on sistema.localidad_id = localidad.id where sistema.estado=1 group by localidad.id, localidad.nombre ");
+$resultado = mysqli_query($conexion,"SELECT localidad.nombre localidad, count(*) cantidad_de_usuarios FROM localidad join sistema on sistema.localidad_id = localidad.id join usuario on usuario.id= sistema.cliente_id where usuario.estado=1 group by localidad.id, localidad.nombre");
 
 while($row = mysqli_fetch_array($resultado)) {
 $loc[] =  $row["localidad"];
