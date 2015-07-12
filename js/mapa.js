@@ -62,7 +62,7 @@
                                     '<p>'+ telefono +'</p>'+
                                     '<a href="'+ link +'" target="_blank" ><button class="vercamaras"'+ permitir +'>Ver cámaras IP</button></a>'+
                                     '<a href="tel:911" target="_parent"><button class="llamada">Llamar al 911</button></a>'+ '<br>' +
-                                    '<a href=" " target="_parent"><button class="llamada">Alarma interna</button></a>'+ '<br>' +
+                                    '<a href="tel:011548724" target="_parent"><button class="llamada">Alarma interna</button></a>'+ '<br>' +
                                 '</div>';
                          
                   //Busco el estado de la alarma dentro de un array con todos los tipos

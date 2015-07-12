@@ -74,7 +74,6 @@
 
 
 
-
         <div id="cerrar-sesion">
             <a href="olvidar.php"><span>X</span> Cerrar Sesión </a>
         </div>
@@ -82,7 +81,7 @@
             
 
 
-        <script src="js/vendor/jquery-2.1.0.min.js"></script>    
+        <script src="js/vendor/jquery-2.1.0.min.js"></script>   
         <script src="js/helper.js"></script>
         <script src="js/mapa.js"></script>
 
