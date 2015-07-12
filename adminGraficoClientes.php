@@ -197,9 +197,14 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Gráfico de barras
+																
                             </div>
                             <div class="panel-body">
-                                <div id="morris-area-chart"></div>
+                                <div id="morris-area-chart"> 
+								<?php
+								echo "<img src='graficoUnoBarras.php' width='600px' height='400px'/>";
+								?>	
+								</div>
                             </div>
                         </div>            
                     </div> 
@@ -214,7 +219,11 @@
                                 Gráfico de torta
                             </div>
                             <div class="panel-body">
-                                <div id="morris-bar-chart"></div>
+                                <div id="morris-bar-chart">
+								<?php
+								echo "<img src='graficoTortaUno.php' width='600px' height='400px'/>";
+								?>	
+								</div>
                             </div>
                         </div>            
                     </div>

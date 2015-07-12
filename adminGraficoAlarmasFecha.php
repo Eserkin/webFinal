@@ -199,7 +199,11 @@
                                 Gráfico de línea
                             </div>
                             <div class="panel-body">
-                                <div id="morris-area-chart"></div>
+                                <div id="morris-area-chart">
+								<?php
+								echo "<img src='graficoDeLineas.php' width='600px' height='400px'/>";
+								?>	
+								</div>
                             </div>
                         </div>            
                     </div> 
