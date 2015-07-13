@@ -191,8 +191,11 @@
 
 
                     echo "
-                                        <i class='fa fa-eye pull-right'></i> 
-                                        <i class='fa fa-download pull-right'></i>
+                                        <!-- <i class='fa fa-eye pull-right'></i>  -->
+										<a  style='margin-left:10%;' href='mostrarPdfFactura.php?nroFactura=$nroFactura'><i class='fa fa-eye pull-right'></i> </a>
+										
+										
+                                       <!-- <i class='fa fa-download pull-right'></i> -->
                                     </div>
                                 ";
                     if(isset($_GET["pagado"])){
