@@ -183,7 +183,7 @@
                                 <div class='panel panel-default'>
                                     <div class='panel-heading'>
                                         ".date("F Y",strtotime($fecha))." - Estado: ".$estado;
-
+$nroFactura=$linea["nro_factura"];//arreglo para mostrarPDF
                    if($linea["estado"]=="0"){
                     $nroFactura=$linea["nro_factura"];
                     echo "<a  style='margin-left:10%;' href='pagarFactura.php?nroFactura=$nroFactura'>Pagar</a>";
