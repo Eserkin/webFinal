@@ -222,7 +222,7 @@ if(isset($_SESSION["log"])){
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
-                                                <button type="button" class="btn btn-warning" onclick="location.href='activarAlarma.php'"><?php if($estado == '1'){ echo "DESACTIVAR";}else{ echo "ACTIVAR";} ?></button>
+                                                <button type="button" class="btn btn-warning" onclick="location.href='activarAlarma.php?id=<?php echo $id; ?>'"><?php if($estado == '1'){ echo "DESACTIVAR";}else{ echo "ACTIVAR";} ?></button>
                                             </div>
                                         </div>
                                     </div>

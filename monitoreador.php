@@ -1,8 +1,7 @@
-<?php
+<?php 
     session_start();
     if(isset($_SESSION["log"])){
         if($_SESSION["perfil"]=="2"){
-
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -21,6 +20,7 @@
         <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
         <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
         <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+        <link href="lightbox/css/lightbox.css" rel="stylesheet" />
 
         <!-- Tile icon for Win8 (144x144 + tile color) -->
         <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
@@ -47,49 +47,78 @@
         <!--
         <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
         -->
-
+        
         <!-- Hojas de Estilo -->
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-
+        <link rel="stylesheet" href="css/simplegrid.css" />
+        
         <!--Google Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
 
 
         <script src="js/vendor/modernizr-2.7.1.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js"></script>
-        
     </head>
-
-    <body onload="load()">
+    
+    <body onload="load()" >
 
         <header>
-            <a href="index.php" title="Sistema para controlar alarmas online"></a>
+            <a href="index.html" title="Sistema para controlar alarmas online"></a>
         </header>
-
+        
         <div id="map">
-
+            
         </div>
         <!--  Fin de googlemaps -->
-
-
 
         <div id="cerrar-sesion">
             <a href="olvidar.php"><span>X</span> Cerrar Sesión </a>
         </div>
 
-            
 
 
-        <script src="js/vendor/jquery-2.1.0.min.js"></script>   
+        <script src="js/vendor/jquery-2.1.0.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script src="js/helper.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/admin/jquery.metisMenu.js"></script>
+        <script src="js/admin/custom.js"></script>
+        <script src="js/lightbox.min.js"></script>
         <script src="js/mapa.js"></script>
+             <script>
+            var consultaAjax = function(){
+                        var data = "consulta=1" ;    
+                        $.ajax({
+                            type:"GET",
+                            url: "consultaAjax.php",
+                            data: data,
+                            error: function (XMLHttpRequest, textStatus, errorThrown)
+                                    {
+                                        alert(errorThrown);
+                                        console.log(errorThrown)
+                                    }
+                                        
+                            ,success: function (ajaxResponse, textStatus)
+                                    {
+                                            console.log(ajaxResponse);
+                                            return;
+                                    }
+                        });
 
-               
+                 }; 
+            function refrescar(){
+                consultaAjax();
+                load();
+            }
+            $(document).ready(function() {
+                var refreshID=setInterval(refrescar, 20000);
+            });
+            
+            
+        </script>
     </body>
-
 </html>
-<?php
+<?php 
      }else{
             header("Location:index.php");
         }

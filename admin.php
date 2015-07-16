@@ -202,6 +202,12 @@
 
                             }
                         ?>
+                        <br><br>
+                        <h2>Dar de alta a los Clientes en el WebService:</h2>
+                        <br>
+                        <button class="btn brn-warning btn-lg" onclick="darAltaclick()">Dar de Alta</button>
+                        <br>
+                        <h3><div id="respuestaAlta" style="color:green;"></div></h3>
                     </div>
                 </div>
 		    </div>
@@ -219,8 +225,58 @@
     <script src="js/admin/jquery.metisMenu.js"></script>
       <!-- Custom Js -->
     <script src="js/admin/custom.js"></script>
+    <script type="text/javascript">
+                function darAltaclick(){
+                <?php 
+                include_once("funcionSQL.php");
+               $link=abriendoConexionSQL();
+                $consulta=consultaDatos("SELECT cliente.id cliente_id,plan, sistema.id sistema_id FROM cliente JOIN sistema ON cliente.id=sistema.cliente_id");
+                while($linea=mysql_fetch_array($consulta)){
+                    $sistemaID=$linea["sistema_id"];
+                    $clienteID=$linea["cliente_id"];
+                    if($linea["plan"]=="1"){
+                        $camaras="0";
+                    }else{
+                        $consultaCamaras=consultaDatos("SELECT COUNT(*) from camaras WHERE sistema_id='$sistemaID';");
+                        $camaras=mysql_result($consultaCamaras, '0');                        
+                    }
+                ?>
+                var data = "accion=A&usuario=grupo11&password=e57a8a52b627f5939eadae00feb1f1a7&sistema=<?php echo $sistemaID; ?>&cliente=<?php echo $clienteID; ?>&camara=<?php echo $camaras; ?>" ;    
+                $.ajax({
+                    type:"GET",
+                    datatype:"JSON",
+                    url: "http://181.171.231.235/alarmas/alta.php",
+                    data: data,
+                    error: function (XMLHttpRequest, textStatus, errorThrown)
+                            {
+                                console.log(errorThrown);
+                                var texto= $("#respuestaAlta").html();
+                                $("#respuestaAlta").html(texto + "<br> Cliente <?php echo $clienteID; ?>: Error. active el plugin o el webService esta caido.");
 
-    
+                            }
+                                ,
+                    success: function (ajaxResponse, textStatus)
+                            {
+                                if(/ok/.test(ajaxResponse)){
+                                    console.log('ok');
+                                    var texto= $("#respuestaAlta").html();
+                                    $("#respuestaAlta").html(texto + "<br> Cliente <?php echo $clienteID; ?>: Ok");
+                                    }
+                                    else{
+                                    console.log('error');
+                                    var texto= $("#respuestaAlta").html();
+                                    $("#respuestaAlta").html(texto + "<br> Cliente <?php echo $clienteID; ?>: Error");
+                                    }
+                                    console.log(ajaxResponse);
+                                    return;
+                            }
+                });
+
+                <?php 
+                    }
+                 ?>
+                };  
+    </script>
    
 </body>
 </html>

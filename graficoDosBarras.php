@@ -3,7 +3,7 @@
 require_once ('jpgraph/src/jpgraph.php');
 require_once ('jpgraph/src/jpgraph_bar.php');
 
-$conexion=mysqli_connect("localhost","root","","basesergio");
+$conexion=mysqli_connect("localhost","root","","asd3");
 
 if (mysqli_connect_errno()) {
   echo "Falló la conexión con MySQL: " . mysqli_connect_error();

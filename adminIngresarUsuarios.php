@@ -228,9 +228,9 @@
                                                     <?php
                                                         if(isset($_GET['operacion'])){
                                                             if($_GET['operacion'] == "1"){
-                                                                echo " <div class='form-group'> <label style='color:green;'> Se ha ingresado el Cliente con &Eacute;xito. </label> </div> ";
+                                                                echo " <div class='form-group'> <label id='respuesta' style='color:green;'> Se ha ingresado el Usuario con &Eacute;xito. </label> </div> ";
                                                             }else{
-                                                                echo " <div class='form-group'> <label style='color:red;'> No se ha podido ingresar el Cliente. </label> </div> ";
+                                                                echo " <div class='form-group'> <label id='respuesta' style='color:red;'> No se ha podido ingresar el Usuario. </label> </div> ";
 
                                                             }
                                                         }
@@ -361,6 +361,37 @@
     <script type="text/javascript">
 
         $(document).ready(function() {
+            <?php 
+                if(isset($_GET["sistema"])){
+                    $sistemaID=$_GET["sistema"];
+                    $clienteID=$_GET["cliente"];
+                    $camaras=$_GET["camaras"];
+             ?>
+
+        var altaAjax = function(){
+                var data = "accion=a&usuario=grupo11&password=e57a8a52b627f5939eadae00feb1f1a7&sistema=<?php echo $sistemaID; ?>&cliente=<?php echo $clienteID; ?>&camara=<?php echo $camaras; ?>" ;    
+                $.ajax({
+                    type:"GET",
+                    datatype:"JSON",
+                    url: "http://181.171.231.235/alarmas/alta.php",
+                    data: data,
+                    error: function (XMLHttpRequest, textStatus, errorThrown)
+                            {
+                                alert(errorThrown);
+                            }
+                                ,
+                    success: function (ajaxResponse, textStatus)
+                            {
+                                console.log(ajaxResponse);
+                                    return;
+                            }
+                });
+            };
+        altaAjax();     
+            <?php 
+                }
+             ?>
+            
 
             $('#ingresarUsuario').formValidation({
                 message: 'This value is not valid',

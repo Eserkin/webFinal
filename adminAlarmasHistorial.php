@@ -218,10 +218,10 @@
                                         <?php 
                                             include_once("funcionSQL.php");
                                             $link=abriendoConexionSQL();
-                                            $consulta=consultaDatos("SELECT * FROM usuario JOIN sistema ON usuario.id=sistema.cliente_id JOIN disparo ON disparo.sistema_id=sistema.id JOIN evento ON disparo.evento_id=evento.id;");
+                                            $consulta=consultaDatos("SELECT usuario.id idUsuario,nick,fecha_inicio,fecha_finalizacion,factor,evento.nombre nombreEvento FROM usuario JOIN sistema ON usuario.id=sistema.cliente_id JOIN disparo ON disparo.sistema_id=sistema.id JOIN evento ON disparo.evento_id=evento.id;");
                                             while ($registro = mysql_fetch_array($consulta)){
                                                 echo "<tr>";
-                                                echo "<td>".$registro['id']."</td>";
+                                                echo "<td>".$registro['idUsuario']."</td>";
                                                 echo "<td>".$registro['nick']."</td>";
                                                 echo "<td>".$registro['fecha_inicio']."</td>";
                                                 echo "<td>".$registro['fecha_finalizacion']."</td>";
@@ -230,7 +230,7 @@
                                                 }else{
                                                     echo "<td> Prueba </td>";
                                                 }
-                                                echo "<td>".$registro['nombre']."</td>";
+                                                echo "<td>".$registro['nombreEvento']."</td>";
                                             }
                                             desconectarSQL($link);
 

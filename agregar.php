@@ -21,7 +21,7 @@ session_start();
 
     		switch ($perfil) {
     			case '1':
-    				if(consultaDatos("INSERT INTO usuario (nick,clave,dni,nombre,apellido,mail,registro,estado,perfil_id) VALUES ('$nick','$clave','$dni','$nombre','$apellido','$mail','$fecha','1','$perfil');")){
+    				if(consultaDatos("INSERT INTO usuario (nick,clave,dni,nombre,apellido,mail,registro,estado,perfil_id) VALUES ('$nick','$clave','$dni','$nombre','$apellido','$mail','$fecha','0','$perfil');")){
     					$consulta=consultaDatos("SELECT * FROM usuario WHERE nick='$nick';");
     					$line=mysql_fetch_assoc($consulta);
     					$id=$line['id'];
@@ -34,13 +34,15 @@ session_start();
                                         case '1':
                                                 $consulta=consultaDatos("SELECT SUM(precio) FROM producto WHERE id='1' OR id='4';");
                                                 $monto=mysql_result($consulta, '0');
+                                                $consulta=consultaDatos("SELECT id FROM sistema WHERE cliente_id='$id';");
+                                                $sistemaId=mysql_result($consulta, '0');
                                                 if(consultaDatos("INSERT INTO factura(fecha,monto,nro_factura,estado,cliente_id) VALUES ('$fecha','$monto','1','0','$id');")){
                                                     $consulta=consultaDatos("SELECT * FROM factura WHERE cliente_id='$id';");
                                                     $line=mysql_fetch_assoc($consulta);
                                                     $factura=$line['id'];
                                                     if(consultaDatos("INSERT INTO detalle (producto_id,factura_id) VALUES ('1','$factura');")){
                                                         if(consultaDatos("INSERT INTO detalle (producto_id,factura_id) VALUES ('4','$factura');")){
-                                                            header("Location:adminIngresarUsuarios.php?operacion=1");
+                                                            header("Location:adminIngresarUsuarios.php?operacion=1&sistema=$sistemaId&cliente=$id&camaras=0");
                                                             desconectarSQL($link);
                                                             exit();
                                                         }
@@ -62,7 +64,7 @@ session_start();
                                                     $factura=$line['id'];
                                                     if(consultaDatos("INSERT INTO detalle (producto_id,factura_id) VALUES ('2','$factura');")){
                                                         if(consultaDatos("INSERT INTO detalle (producto_id,factura_id) VALUES ('5','$factura');")){
-                                                            header("Location:adminIngresarUsuarios.php?operacion=1");
+                                                            header("Location:adminIngresarUsuarios.php?operacion=1&sistema=$sistemaId&cliente=$id&camaras=0");
                                                             desconectarSQL($link);
                                                             exit();
                                                         }
@@ -83,7 +85,7 @@ session_start();
                                                     $factura=$line['id'];
                                                     if(consultaDatos("INSERT INTO detalle (producto_id,factura_id) VALUES ('3','$factura');")){
                                                         if(consultaDatos("INSERT INTO detalle (producto_id,factura_id) VALUES ('6','$factura');")){
-                                                            header("Location:adminIngresarUsuarios.php?operacion=1");
+                                                            header("Location:adminIngresarUsuarios.php?operacion=1&sistema=$sistemaId&cliente=$id&camaras=0");
                                                             desconectarSQL($link);
                                                             exit();
                                                         }

@@ -6,13 +6,13 @@ require_once ('jpgraph/src/jpgraph_line.php');
 
 //$dateUtils = new DateScaleUtils();
 //conectamos con base de datos
-$conexion=mysqli_connect("localhost","root","","basesergio");
+$conexion=mysqli_connect("localhost","root","","asd3");
 // Check connection
 if (mysqli_connect_errno()) {
   echo "Falló la conexión con MySQL: " . mysqli_connect_error();
 }
 
-$resultadoUno = mysqli_query($conexion,"select count(*) cantidad_de_alarmas, DATE(fecha) fecha from disparo group by DATE(fecha)   ");
+$resultadoUno = mysqli_query($conexion,"select count(*) cantidad_de_alarmas, DATE(fecha_inicio) fecha from disparo group by DATE(fecha_inicio);   ");
 
 while($row = mysqli_fetch_array($resultadoUno)) {
 $fechaUno[] =  $row["fecha"];

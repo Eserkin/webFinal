@@ -20,7 +20,7 @@ $id=$_SESSION["id"];
 $nroFactura=$_GET["nroFactura"];
 
 
-$con=mysqli_connect("localhost","root","","bd");
+$con=mysqli_connect("localhost","root","","asd3");
 
 if (mysqli_connect_errno()) {
   echo "Falló la conexión con MySQL: " . mysqli_connect_error();

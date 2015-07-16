@@ -16,8 +16,8 @@ return $xmlStr;
 $link=abriendoConexionSQL();
 
 //Se selecciona todas la filas de la tabla sistema
-//$consulta=consultaDatos("SELECT U.perfil_id, U.nombre, C.telefono, S.direccion, Cam.url, cam.permitir_monitoreo, S.estado, S.latitud, S.longitud FROM sistema S JOIN cliente C ON S.cliente_id=C.id JOIN usuario U ON C.id=U.id JOIN camaras Cam ON S.id=Cam.sistema_id WHERE U.perfil_id=1");
-$consulta=consultaDatos("SELECT DISTINCT usuario.id usuarioId,sistema.id sistemaId,cliente.plan,usuario.nombre,sistema.direccion,cliente.telefono,sistema.estado,latitud,longitud FROM usuario JOIN cliente ON usuario.id=cliente.id JOIN sistema ON sistema.cliente_id=cliente.id;");
+$consulta=consultaDatos("SELECT U.perfil_id, U.nombre, C.telefono, S.direccion, Cam.url, cam.permitir_monitoreo, S.estado, S.latitud, S.longitud FROM sistema S JOIN cliente C ON S.cliente_id=C.id JOIN usuario U ON C.id=U.id JOIN camaras Cam ON S.id=Cam.sistema_id WHERE U.perfil_id=1");
+
 header("Content-type: text/xml");
 
 // Start XML file, echo parent node
@@ -27,23 +27,12 @@ echo '<markers>';
 while ($registro = mysql_fetch_array($consulta)){
 
   	  echo '<marker ';
-  	  echo 'id="' . parseToXML($registro['usuarioId']) . '" ' ;
 	  echo 'nombre="' . parseToXML($registro['nombre']) . '" ';
 	  echo 'direccion="' . parseToXML($registro['direccion']) . '" ';
 	  echo 'telefono="' . $registro['telefono'] . '" ';
-	  if($registro["plan"]=="1"){
-		  $url="No Posee Camaras.";
-		  $permitir_monitoreo="0";	  	
-	  }else{
-	  	$sistemaID=$registro["sistemaId"];
-	  	$consultaCamaras=consultaDatos("SELECT url,permitir_monitoreo FROM camaras WHERE id=(SELECT MAX(id) FROM camaras WHERE sistema_id='$sistemaID') ;");
-	  	$linea=mysql_fetch_array($consultaCamaras);
-	  	$url=$linea["url"];
-	  	$permitir_monitoreo=$linea["permitir_monitoreo"];
-	  }
-	  echo 'url="' . $url . '" ';
+	  echo 'url="' . $registro['url'] . '" ';
 	  echo 'estado="' . $registro['estado'] . '" ';
-	  if($permitir_monitoreo ==1){
+	  if($registro['permitir_monitoreo'] ==1){
 	  	echo 'permitir_monitoreo="enabled" ';
 	  }else{
 	  	echo 'permitir_monitoreo="disabled" ';

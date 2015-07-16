@@ -7,7 +7,7 @@ require_once ('jpgraph/src/jpgraph_pie3d.php');
 //coneccion con base de datos
 
 
-$conexion=mysqli_connect("localhost","root","","basesergio");
+$conexion=mysqli_connect("localhost","root","","asd3");
 
 if (mysqli_connect_errno()) {
   echo "Falló la conexión con MySQL: " . mysqli_connect_error();

@@ -203,6 +203,7 @@
                                 <div id="morris-area-chart">
 								<?php
 								echo "<img src='graficoDosBarras.php' width='600px' height='400px'/>";
+                               
 								?>	
 								
 								</div>

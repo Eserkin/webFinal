@@ -8,10 +8,6 @@
                 animation: null,
               },
               1: {
-                icon: 'img/alarmOFF.png',
-                animation: null,
-              },
-              2: {
                 icon: 'img/alarmAlert.png',
                 animation: google.maps.Animation.BOUNCE,
               },
@@ -41,6 +37,7 @@
                 var markers = xml.documentElement.getElementsByTagName("marker");
                 
                 for (var i = 0; i < markers.length; i++) {
+                    var id = markers[i].getAttribute("id");
                     var nombre = markers[i].getAttribute("nombre");
                     var direccion = markers[i].getAttribute("direccion");
                     var telefono = markers[i].getAttribute("telefono");
@@ -60,9 +57,9 @@
                                     '<h4 id="cliente">'+ nombre +'</h4>'+
                                     '<p>'+ direccion +'</p>'+
                                     '<p>'+ telefono +'</p>'+
-                                    '<a href="'+ link +'" target="_blank" ><button class="vercamaras"'+ permitir +'>Ver cámaras IP</button></a>'+
+                                    '<a href="'+ link +'" target="_blank" data-lightbox="Camara 1 de '+ nombre +'" data-title="Camara 1 de '+ nombre +'"><button class="vercamaras"'+ permitir +'>Ver cámara IP</button></a>'+
                                     '<a href="tel:911" target="_parent"><button class="llamada">Llamar al 911</button></a>'+ '<br>' +
-                                    '<a href="tel:011548724" target="_parent"><button class="llamada">Alarma interna</button></a>'+ '<br>' +
+                                    '<a href="activarAlarma.php?id=' + id +'" target="_parent"><button class="llamada" >Alarma interna</button></a>'+ '<br>' +
                                 '</div>';
                          
                   //Busco el estado de la alarma dentro de un array con todos los tipos

@@ -203,6 +203,7 @@
                                 <div id="morris-area-chart"> 
 								<?php
 								echo "<img src='graficoUnoBarras.php' width='600px' height='400px'/>";
+                              
 								?>	
 								</div>
                             </div>
@@ -222,6 +223,7 @@
                                 <div id="morris-bar-chart">
 								<?php
 								echo "<img src='graficoTortaUno.php' width='600px' height='400px'/>";
+
 								?>	
 								</div>
                             </div>
